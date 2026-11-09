@@ -451,10 +451,7 @@ function initFormHandlers() {
       const location = document.getElementById("homeLocation")?.value || "";
       const budget = document.getElementById("homeBudget")?.value || "";
 
-      showToast("Searching matching properties...", "info");
-      setTimeout(() => {
-        window.location.href = `properties.html?type=${encodeURIComponent(propType)}&location=${encodeURIComponent(location)}&budget=${encodeURIComponent(budget)}`;
-      }, 350);
+      window.location.href = `properties.html?type=${encodeURIComponent(propType)}&location=${encodeURIComponent(location)}&budget=${encodeURIComponent(budget)}`;
     });
   }
 }

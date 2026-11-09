@@ -36,11 +36,13 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #dbe7f7;
+  color-scheme: light;
 }
 
 body {
   font-family: var(--font-family);
-  background: #dbe7f7;
+  background-color: #dbe7f7;
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
@@ -49,6 +51,7 @@ body {
   justify-content: flex-start;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  color-scheme: light;
 }
 
 /* Master App Viewport Container */
@@ -210,10 +213,8 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 6s ease-out;
-  transform: scale(1.04);
-  mask-image: linear-gradient(to right, transparent 0%, black 45%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 45%);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 5s ease-out;
+  transform: scale(1.03);
 }
 
 .hero-slide-img.active {
@@ -331,8 +332,15 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  mask-image: linear-gradient(to right, transparent 0%, black 40%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+}
+
+.page-title-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #02367d 25%, rgba(2, 54, 125, 0.6) 55%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .page-title-banner .banner-content {
@@ -1894,11 +1902,11 @@ body {
 .toast-notice.success i { color: #22c55e; }
 .toast-notice.info i { color: #38bdf8; }
 
-/* Scroll-triggered reveal animations */
+/* Smooth Section Transitions - immediately visible and smooth */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
 }
 
 .reveal-on-scroll.is-revealed {
