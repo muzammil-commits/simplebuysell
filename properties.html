@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Properties - SimplyBuySell</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Viewport Switcher & Quick Navigation Bar -->
+  <div class="viewport-control-bar">
+    <div class="viewport-info">
+      <span class="viewport-badge">SimplyBuySell</span>
+      <span>Open Properties Directory</span>
+    </div>
+    <div class="viewport-btns">
+      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
+      <button id="viewMobileBtn" class="view-btn">
+        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
+      </button>
+      <button id="viewDesktopBtn" class="view-btn active">
+        <i class="fa-solid fa-desktop"></i> Desktop View
+      </button>
+    </div>
+  </div>
+
+  <div class="app-viewport-wrapper mode-desktop">
+    <div class="app-container">
+
+      <!-- iOS Status Bar -->
+      <div class="ios-status-bar">
+        <span id="statusClock">9:41</span>
+        <div class="dynamic-island"></div>
+        <div class="status-right">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
+        </a>
+        <button onclick="openLanguageModal()" class="lang-dropdown-btn">
+          <i class="fa-solid fa-globe"></i>
+          <span id="selectedLangText">English</span>
+          <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+        </button>
+      </header>
+
+      <!-- Top Nav Bar -->
+      <nav class="top-nav-bar">
+        <a href="index.html" class="nav-tab-item">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="motto.html" class="nav-tab-item">
+          <i class="fa-solid fa-bullseye"></i> Our Motto
+        </a>
+        <a href="buy.html" class="nav-tab-item">
+          <i class="fa-solid fa-handshake"></i> Buy / Sell
+        </a>
+      </nav>
+
+      <!-- Page Content -->
+      <main class="page-content">
+
+        <!-- Page Header Banner -->
+        <section class="page-title-banner">
+          <img src="assets/images/hero-villa.png" alt="Open Properties" class="banner-bg-img">
+          <div class="banner-content">
+            <h1>Open <span class="highlight">Properties</span></h1>
+            <p>Explore the best properties, just for you.</p>
+          </div>
+        </section>
+
+        <!-- Search & Filter Controls -->
+        <section class="properties-filter-bar">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchPropInput" placeholder="Search properties..." oninput="filterProperties()">
+          </div>
+          <div class="filters-row">
+            <select id="filterLocation" class="filter-select" onchange="filterProperties()">
+              <option value="">Location ⌵</option>
+              <option value="Vizag">Vizag</option>
+              <option value="Kakinada">Kakinada</option>
+              <option value="Rajahmundry">Rajahmundry</option>
+              <option value="Tirupati">Tirupati</option>
+              <option value="Guntur">Guntur</option>
+              <option value="Nellore">Nellore</option>
+              <option value="Amaravathi">Amaravathi</option>
+            </select>
+
+            <select id="filterType" class="filter-select" onchange="filterProperties()">
+              <option value="">Property Type ⌵</option>
+              <option value="Villas">Villas</option>
+              <option value="Flats">Apartments</option>
+              <option value="Plots">Plots</option>
+              <option value="Houses">Houses</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Farm Lands">Farm Land</option>
+            </select>
+
+            <select id="filterBudget" class="filter-select" onchange="filterProperties()">
+              <option value="">Budget ⌵</option>
+              <option value="under-50l">&lt; ₹50 Lakhs</option>
+              <option value="50l-1cr">₹50L - ₹1 Cr</option>
+              <option value="above-1cr">&gt; ₹1 Crore</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- 6 Properties Cards Grid -->
+        <section class="property-cards-grid" id="propertiesGridContainer">
+          <!-- Populated by JavaScript and pre-rendered for instant visual fidelity -->
+          <!-- 1. Luxury Villa -->
+          <div class="property-card-item">
+            <div class="prop-img-box">
+              <img src="assets/images/prop-villa.png" alt="Luxury Villa">
+              <span class="prop-tag green"><i class="fa-solid fa-tag"></i> For Sale</span>
+              <button class="prop-fav-btn" title="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="prop-details-box">
+              <div>
+                <h4 class="prop-title">Luxury Villa</h4>
+                <span class="prop-location"><i class="fa-solid fa-location-dot" style="color: #0754bd;"></i> Vizag</span>
+                <div class="prop-price">₹ 1.25 Cr</div>
+                <div class="prop-specs"><i class="fa-solid fa-house-chimney"></i> 4 BHK | 3200 Sq.Ft.</div>
+              </div>
+              <div>
+                <div class="prop-rating-row">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.8 (120 Reviews)</span>
+                </div>
+                <button onclick="openPropertyDetails('prop-1')" class="btn-view-details" style="width: 100%;">
+                  View Details ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Modern Apartment -->
+          <div class="property-card-item">
+            <div class="prop-img-box">
+              <img src="assets/images/prop-apartment.png" alt="Modern Apartment">
+              <span class="prop-tag blue"><i class="fa-solid fa-tag"></i> For Rent</span>
+              <button class="prop-fav-btn" title="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="prop-details-box">
+              <div>
+                <h4 class="prop-title">Modern Apartment</h4>
+                <span class="prop-location"><i class="fa-solid fa-location-dot" style="color: #0754bd;"></i> Kakinada</span>
+                <div class="prop-price">₹ 25,000 / Month</div>
+                <div class="prop-specs"><i class="fa-solid fa-house-chimney"></i> 2 BHK | 1200 Sq.Ft.</div>
+              </div>
+              <div>
+                <div class="prop-rating-row">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.6 (88 Reviews)</span>
+                </div>
+                <button onclick="openPropertyDetails('prop-2')" class="btn-view-details" style="width: 100%;">
+                  View Details ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Residential Plot -->
+          <div class="property-card-item">
+            <div class="prop-img-box">
+              <img src="assets/images/prop-plot.png" alt="Residential Plot">
+              <span class="prop-tag orange"><i class="fa-solid fa-tag"></i> For Sale</span>
+              <button class="prop-fav-btn" title="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="prop-details-box">
+              <div>
+                <h4 class="prop-title">Residential Plot</h4>
+                <span class="prop-location"><i class="fa-solid fa-location-dot" style="color: #0754bd;"></i> Rajahmundry</span>
+                <div class="prop-price">₹ 40 Lakhs</div>
+                <div class="prop-specs"><i class="fa-solid fa-ruler-combined"></i> 200 Sq.Yds</div>
+              </div>
+              <div>
+                <div class="prop-rating-row">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.7 (75 Reviews)</span>
+                </div>
+                <button onclick="openPropertyDetails('prop-3')" class="btn-view-details" style="width: 100%;">
+                  View Details ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Independent House -->
+          <div class="property-card-item">
+            <div class="prop-img-box">
+              <img src="assets/images/prop-house.png" alt="Independent House">
+              <span class="prop-tag green"><i class="fa-solid fa-tag"></i> For Sale</span>
+              <button class="prop-fav-btn" title="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="prop-details-box">
+              <div>
+                <h4 class="prop-title">Independent House</h4>
+                <span class="prop-location"><i class="fa-solid fa-location-dot" style="color: #0754bd;"></i> Tirupati</span>
+                <div class="prop-price">₹ 85 Lakhs</div>
+                <div class="prop-specs"><i class="fa-solid fa-house-chimney"></i> 3 BHK | 1800 Sq.Ft.</div>
+              </div>
+              <div>
+                <div class="prop-rating-row">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.9 (110 Reviews)</span>
+                </div>
+                <button onclick="openPropertyDetails('prop-4')" class="btn-view-details" style="width: 100%;">
+                  View Details ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Commercial Space -->
+          <div class="property-card-item">
+            <div class="prop-img-box">
+              <img src="assets/images/prop-commercial.png" alt="Commercial Space">
+              <span class="prop-tag blue"><i class="fa-solid fa-tag"></i> For Rent</span>
+              <button class="prop-fav-btn" title="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="prop-details-box">
+              <div>
+                <h4 class="prop-title">Commercial Space</h4>
+                <span class="prop-location"><i class="fa-solid fa-location-dot" style="color: #0754bd;"></i> Guntur</span>
+                <div class="prop-price">₹ 50,000 / Month</div>
+                <div class="prop-specs"><i class="fa-solid fa-building"></i> 1000 Sq.Ft.</div>
+              </div>
+              <div>
+                <div class="prop-rating-row">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.5 (60 Reviews)</span>
+                </div>
+                <button onclick="openPropertyDetails('prop-5')" class="btn-view-details" style="width: 100%;">
+                  View Details ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Farm Land -->
+          <div class="property-card-item">
+            <div class="prop-img-box">
+              <img src="assets/images/prop-farmland.png" alt="Farm Land">
+              <span class="prop-tag orange"><i class="fa-solid fa-tag"></i> For Sale</span>
+              <button class="prop-fav-btn" title="Add to favorites"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="prop-details-box">
+              <div>
+                <h4 class="prop-title">Farm Land</h4>
+                <span class="prop-location"><i class="fa-solid fa-location-dot" style="color: #0754bd;"></i> Nellore</span>
+                <div class="prop-price">₹ 1.2 Cr</div>
+                <div class="prop-specs"><i class="fa-solid fa-tractor"></i> 5 Acres</div>
+              </div>
+              <div>
+                <div class="prop-rating-row">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.8 (95 Reviews)</span>
+                </div>
+                <button onclick="openPropertyDetails('prop-6')" class="btn-view-details" style="width: 100%;">
+                  View Details ➔
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pagination Controls -->
+        <section class="pagination-wrap">
+          <button class="page-num-btn active">1</button>
+          <button class="page-num-btn" onclick="showToast('Page 2 loaded', 'info')">2</button>
+          <button class="page-num-btn" onclick="showToast('Page 3 loaded', 'info')">3</button>
+          <button class="page-num-btn" onclick="showToast('Next page', 'info')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </section>
+
+        <!-- Find Your Dream Property Today CTA Card -->
+        <section class="dream-cta-card">
+          <div style="font-size: 32px; color: #0754bd;">
+            <i class="fa-solid fa-house-circle-check"></i>
+          </div>
+          <div class="dream-cta-text" style="flex: 1;">
+            <h4>Find Your Dream Property Today!</h4>
+            <p>With SimplyBuySell, your dream is just a click away.</p>
+          </div>
+          <a href="buy.html" class="btn-orange" style="padding: 8px 14px; font-size: 12px; white-space: nowrap;">
+            <i class="fa-solid fa-house"></i> Explore More ➔
+          </a>
+        </section>
+
+      </main>
+
+      <!-- Bottom Floating Nav Bar (matches image copy 2.png) -->
+      <nav class="bottom-floating-nav">
+        <button onclick="openCallModal()" class="bottom-nav-pill pill-call-green">
+          <i class="fa-solid fa-phone"></i> Call
+        </button>
+        <a href="write-review.html" class="bottom-nav-pill pill-review-blue">
+          <i class="fa-solid fa-star"></i> Write a Review
+        </a>
+        <a href="properties.html" class="bottom-nav-pill pill-properties-purple">
+          <i class="fa-solid fa-layer-group"></i> Open Properties
+        </a>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Shared Modals -->
+  <div id="callModal" class="modal-backdrop">
+    <div class="modal-dialog-box">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div class="call-options-grid">
+          <a href="tel:+919876543210" class="call-option-item">
+            <div class="call-option-icon phone"><i class="fa-solid fa-phone"></i></div>
+            <div class="call-option-text">
+              <h4>Direct Call Hotline</h4>
+              <p>+91 98765 43210 (Toll-Free Instant Connect)</p>
+            </div>
+          </a>
+          <a href="https://wa.me/919876543210?text=Hi%20SimplyBuySell,%20I%20am%20interested%20in%20properties" target="_blank" class="call-option-item">
+            <div class="call-option-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="call-option-text">
+              <h4>Chat on WhatsApp</h4>
+              <p>Instant property brochures, location links & pricing</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+            <div class="call-option-text">
+              <h4>English</h4>
+              <p>Standard International Version</p>
+            </div>
+          </button>
+          <button onclick="selectLanguage('తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text">
+              <h4>తెలుగు (Telugu)</h4>
+              <p>ఆంధ్రప్రదేశ్ & తెలంగాణ</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="propDetailsModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 520px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-house-chimney"></i> Property Details</h3>
+        <button onclick="closeModal('propDetailsModal')" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll" id="propDetailsModalBody"></div>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 400px; text-align: center;">
+      <div class="modal-body-scroll" style="align-items: center; padding: 30px 20px;">
+        <div style="width: 65px; height: 65px; border-radius: 50%; background: #ecfdf5; color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 id="successModalTitle" style="font-size: 18px; font-weight: 800; color: #033a88; margin-bottom: 8px;">Success!</h3>
+        <p id="successModalBody" style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 16px;"></p>
+        <div style="background: #f1f5f9; padding: 6px 14px; border-radius: 8px; font-size: 12px; color: #334155; margin-bottom: 18px;">
+          Reference ID: <strong id="successModalRef" style="color: #0754bd;"></strong>
+        </div>
+        <button onclick="closeModal('successModal')" class="btn-orange" style="width: 100%; justify-content: center;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Handle query params on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      const locParam = urlParams.get('location');
+      const budgetParam = urlParams.get('budget');
+
+      if (typeParam) document.getElementById('filterType').value = typeParam;
+      if (locParam) document.getElementById('filterLocation').value = locParam;
+      if (budgetParam) document.getElementById('filterBudget').value = budgetParam;
+
+      if (typeParam || locParam || budgetParam) {
+        filterProperties();
+      }
+    });
+  </script>
+</body>
+</html>

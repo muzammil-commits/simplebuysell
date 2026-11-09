@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - SimplyBuySell</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Viewport Switcher & Quick Navigation Bar -->
+  <div class="viewport-control-bar">
+    <div class="viewport-info">
+      <span class="viewport-badge">SimplyBuySell</span>
+      <span>Support & Inquiries</span>
+    </div>
+    <div class="viewport-btns">
+      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
+      <button id="viewMobileBtn" class="view-btn">
+        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
+      </button>
+      <button id="viewDesktopBtn" class="view-btn active">
+        <i class="fa-solid fa-desktop"></i> Desktop View
+      </button>
+    </div>
+  </div>
+
+  <div class="app-viewport-wrapper mode-desktop">
+    <div class="app-container">
+
+      <!-- iOS Status Bar -->
+      <div class="ios-status-bar">
+        <span id="statusClock">9:41</span>
+        <div class="dynamic-island"></div>
+        <div class="status-right">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
+        </a>
+        <button onclick="openLanguageModal()" class="lang-dropdown-btn">
+          <i class="fa-solid fa-globe"></i>
+          <span id="selectedLangText">English</span>
+          <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+        </button>
+      </header>
+
+      <!-- Top Nav Bar -->
+      <nav class="top-nav-bar">
+        <a href="index.html" class="nav-tab-item">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="motto.html" class="nav-tab-item">
+          <i class="fa-solid fa-bullseye"></i> Our Motto
+        </a>
+        <a href="buy.html" class="nav-tab-item">
+          <i class="fa-solid fa-handshake"></i> Buy / Sell
+        </a>
+      </nav>
+
+      <!-- Page Content -->
+      <main class="page-content">
+
+        <!-- Banner Header (matches image copy 3.png) -->
+        <section class="page-title-banner">
+          <img src="assets/images/city-banner.png" alt="Contact Us" class="banner-bg-img">
+          <div class="banner-content">
+            <h1>Contact <span class="highlight">Us</span></h1>
+            <p>We're here to help! Reach out to our team for any queries or assistance.</p>
+          </div>
+        </section>
+
+        <!-- Get In Touch Form Card -->
+        <section class="interactive-search-card">
+          <div style="padding: 16px; border-bottom: 1.5px solid #eef5ff; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #e0f2fe; color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 800; color: #033a88;">Get in Touch</h3>
+              <p style="font-size: 12px; color: #64748b;">Have a question? Need assistance? We're just a message away!</p>
+            </div>
+          </div>
+
+          <form id="contactUsForm" class="search-form-body">
+            <div class="form-group">
+              <label class="form-label">Your Name <span class="req">*</span></label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="custom-input" placeholder="Enter your name" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mobile Number <span class="req">*</span></label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" class="custom-input" placeholder="Enter your mobile number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address <span class="req">*</span></label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" class="custom-input" placeholder="Enter your email address" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Your Query Type</label>
+              <div class="action-toggle-row">
+                <button type="button" class="action-btn-tab active" id="queryGeneralBtn" onclick="setQueryType(this)">
+                  <i class="fa-solid fa-comments"></i> General Inquiry
+                </button>
+                <button type="button" class="action-btn-tab" id="queryPropBtn" onclick="setQueryType(this)">
+                  <i class="fa-solid fa-house-circle-check"></i> Property Enquiry
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Your Message <span class="req">*</span></label>
+              <textarea class="custom-textarea" placeholder="Write your message here..." maxlength="500" required></textarea>
+              <span class="char-counter-text">0/500</span>
+            </div>
+
+            <button type="submit" class="btn-orange" style="width: 100%; justify-content: center; margin-top: 4px;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+
+            <!-- Verification Note -->
+            <div class="info-note-box">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>We'll get back to you within 24 hours.</span>
+            </div>
+          </form>
+        </section>
+
+      </main>
+
+      <!-- Bottom Floating Nav Bar -->
+      <nav class="bottom-floating-nav">
+        <button onclick="openCallModal()" class="bottom-nav-pill pill-call-green">
+          <i class="fa-solid fa-phone"></i> Call
+        </button>
+        <a href="write-review.html" class="bottom-nav-pill pill-review-blue">
+          <i class="fa-solid fa-star"></i> Write a Review
+        </a>
+        <a href="properties.html" class="bottom-nav-pill pill-properties-purple">
+          <i class="fa-solid fa-layer-group"></i> Open Properties
+        </a>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Shared Modals -->
+  <div id="callModal" class="modal-backdrop">
+    <div class="modal-dialog-box">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div class="call-options-grid">
+          <a href="tel:+919876543210" class="call-option-item">
+            <div class="call-option-icon phone"><i class="fa-solid fa-phone"></i></div>
+            <div class="call-option-text">
+              <h4>Direct Call Hotline</h4>
+              <p>+91 98765 43210 (Toll-Free Instant Connect)</p>
+            </div>
+          </a>
+          <a href="https://wa.me/919876543210?text=Hi%20SimplyBuySell,%20I%20am%20interested%20in%20properties" target="_blank" class="call-option-item">
+            <div class="call-option-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="call-option-text">
+              <h4>Chat on WhatsApp</h4>
+              <p>Instant property brochures, location links & pricing</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+          <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+          <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 400px; text-align: center;">
+      <div class="modal-body-scroll" style="align-items: center; padding: 30px 20px;">
+        <div style="width: 65px; height: 65px; border-radius: 50%; background: #ecfdf5; color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 id="successModalTitle" style="font-size: 18px; font-weight: 800; color: #033a88; margin-bottom: 8px;">Success!</h3>
+        <p id="successModalBody" style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 16px;"></p>
+        <div style="background: #f1f5f9; padding: 6px 14px; border-radius: 8px; font-size: 12px; color: #334155; margin-bottom: 18px;">
+          Reference ID: <strong id="successModalRef" style="color: #0754bd;"></strong>
+        </div>
+        <button onclick="closeModal('successModal')" class="btn-orange" style="width: 100%; justify-content: center;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function setQueryType(btn) {
+      document.querySelectorAll('.action-toggle-row button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Property - SimplyBuySell</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Viewport Switcher & Quick Navigation Bar -->
+  <div class="viewport-control-bar">
+    <div class="viewport-info">
+      <span class="viewport-badge">SimplyBuySell</span>
+      <span>Property Listing & Seller Portal</span>
+    </div>
+    <div class="viewport-btns">
+      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
+      <button id="viewMobileBtn" class="view-btn">
+        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
+      </button>
+      <button id="viewDesktopBtn" class="view-btn active">
+        <i class="fa-solid fa-desktop"></i> Desktop View
+      </button>
+    </div>
+  </div>
+
+  <div class="app-viewport-wrapper mode-desktop">
+    <div class="app-container">
+
+      <!-- iOS Status Bar -->
+      <div class="ios-status-bar">
+        <span id="statusClock">9:41</span>
+        <div class="dynamic-island"></div>
+        <div class="status-right">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </div>
+
+      <!-- App Header -->
+      <header class="app-header">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
+        </a>
+        <button onclick="openLanguageModal()" class="lang-dropdown-btn">
+          <i class="fa-solid fa-globe"></i>
+          <span id="selectedLangText">English</span>
+          <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+        </button>
+      </header>
+
+      <!-- Top Nav Bar (Buy / Sell Active) -->
+      <nav class="top-nav-bar">
+        <a href="index.html" class="nav-tab-item">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="motto.html" class="nav-tab-item">
+          <i class="fa-solid fa-bullseye"></i> Our Motto
+        </a>
+        <a href="buy.html" class="nav-tab-item active">
+          <i class="fa-solid fa-handshake"></i> Buy / Sell
+        </a>
+      </nav>
+
+      <!-- Page Content -->
+      <main class="page-content">
+
+        <!-- Banner Header (matches image copy 9.png) -->
+        <section class="page-title-banner">
+          <img src="assets/images/city-banner.png" alt="Buy / Sell Property" class="banner-bg-img">
+          <div class="banner-content">
+            <h1>Buy / Sell <span class="highlight">Property</span></h1>
+            <p>List your property or find the right one with trust and transparency.</p>
+          </div>
+        </section>
+
+        <form id="sellPropertyForm" style="display: flex; flex-direction: column; gap: 12px;">
+
+          <!-- Step 1: Select Property Type (matches image copy 9.png) -->
+          <section class="step-selection-card">
+            <div class="step-label">
+              <span class="step-num-badge">1</span>
+              <span>Select Property Type</span>
+            </div>
+            <div class="prop-type-choice-grid">
+              <div class="prop-choice-card" onclick="selectSellPropType(this, 'amara')">
+                <img src="assets/images/select-amaravathi.png" alt="Amaravathi LPS Plots">
+                <span class="prop-choice-title">Amaravathi LPS Plots</span>
+                <span class="prop-choice-radio"></span>
+              </div>
+              <div class="prop-choice-card active" onclick="selectSellPropType(this, 'pooling')">
+                <img src="assets/images/select-pooling.png" alt="2nd Pooling Lands">
+                <span class="prop-choice-title">2nd Pooling Lands</span>
+                <span class="prop-choice-radio"></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 2: Choose Action (matches image copy 9.png) -->
+          <section class="step-selection-card">
+            <div class="step-label">
+              <span class="step-num-badge">2</span>
+              <span>Choose Action</span>
+            </div>
+            <div class="action-toggle-row">
+              <a href="buy.html" class="action-btn-tab">
+                <i class="fa-solid fa-cart-shopping"></i> Buy (I want to purchase)
+              </a>
+              <a href="sell.html" class="action-btn-tab active">
+                <i class="fa-solid fa-tag"></i> Sell (I want to sell my property)
+              </a>
+            </div>
+          </section>
+
+          <!-- Main Requirement Card: 2nd Pooling Lands - Sell Requirement -->
+          <section class="step-selection-card">
+            <div style="font-size: 13.5px; font-weight: 800; color: #033a88; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 8px;">
+              <i class="fa-solid fa-file-contract" style="color: #ff6801;"></i>
+              <span id="selectedCategoryHeadline">2nd Pooling Lands – Sell Requirement</span>
+            </div>
+
+            <!-- Customer Information -->
+            <div class="form-sub-header">
+              <i class="fa-solid fa-user" style="color: #0754bd;"></i>
+              <span>Customer Information</span>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Full Name <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" class="custom-input" placeholder="Enter your name" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Contact Number <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" class="custom-input" placeholder="Enter 10-digit mobile number" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Relation to Property <span class="req">*</span></label>
+              <div class="radio-inline-group" style="padding-top: 4px; flex-wrap: wrap;">
+                <label class="custom-radio-label">
+                  <input type="radio" name="sellRelation" value="owner" checked>
+                  <span>Owner</span>
+                </label>
+                <label class="custom-radio-label">
+                  <input type="radio" name="sellRelation" value="guardian">
+                  <span>Guardian (Family Member)</span>
+                </label>
+                <label class="custom-radio-label">
+                  <input type="radio" name="sellRelation" value="agent">
+                  <span>Agent (Authorized)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="form-sub-header" style="margin-top: 10px;">
+              <i class="fa-solid fa-seedling" style="color: #16a34a;"></i>
+              <span>Property Details</span>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Village <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <select class="custom-select" required>
+                    <option value="" disabled selected>Select Village</option>
+                    <option value="Mandadam">Mandadam</option>
+                    <option value="Thullur">Thullur</option>
+                    <option value="Velagapudi">Velagapudi</option>
+                    <option value="Inavolu">Inavolu</option>
+                    <option value="Ainavolu">Ainavolu</option>
+                    <option value="Ananthavaram">Ananthavaram</option>
+                    <option value="Nelapadu">Nelapadu</option>
+                    <option value="Rayapudi">Rayapudi</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Total Land (Acres) <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-mountain-sun"></i>
+                  <input type="text" class="custom-input" placeholder="Enter total land in acres (e.g., 2.50)" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Land Use / Type</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <select class="custom-select">
+                    <option value="" disabled selected>Select (e.g., Agriculture, Dry, Wet)</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Dry">Dry Land (Metta)</option>
+                    <option value="Wet">Wet Land (Magani)</option>
+                    <option value="Commercial">Commercial / Highway Facing</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Expected Price per Acre (₹) <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+                  <input type="text" class="custom-input" placeholder="Enter expected price per acre" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Location Advantage (Optional)</label>
+                <div style="display: flex; gap: 14px; padding-top: 6px;">
+                  <label class="custom-checkbox-label">
+                    <input type="checkbox" name="locAdv" value="nearRoad">
+                    <span>Near Road</span>
+                  </label>
+                  <label class="custom-checkbox-label">
+                    <input type="checkbox" name="locAdv" value="nearAmaravathi">
+                    <span>Near Amaravathi</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Preferred Sale / Agreement Time</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-calendar-check"></i>
+                  <select class="custom-select">
+                    <option value="" disabled selected>Select timeline (e.g., Immediate, 3 Months, 6 Months)</option>
+                    <option value="Immediate">Immediate (Within 15 days)</option>
+                    <option value="3 Months">Within 3 Months</option>
+                    <option value="6 Months">Within 6 Months</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Available Documents -->
+            <div class="form-group" style="margin-top: 10px;">
+              <div class="form-label" style="display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-file-shield" style="color: #ff6801;"></i>
+                <span>Available Documents <span class="req">*</span></span>
+              </div>
+              <div class="checkbox-multi-grid" style="margin-top: 6px;">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" name="doc" value="titleDeed" checked>
+                  <span>Title Deed / Sale Deed (Ownership Proof)</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" name="doc" value="taxReceipt">
+                  <span>Latest Land Tax Receipt</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" name="doc" value="ec">
+                  <span>EC (Encumbrance Certificate)</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" name="doc" value="survey">
+                  <span>Survey Number / Khata / Pahani / Adangal</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" name="doc" value="linkDoc">
+                  <span>Link Document (if any)</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" name="doc" value="other">
+                  <span>Other (Please Specify)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Additional Details -->
+            <div class="form-group" style="margin-top: 8px;">
+              <div class="form-label" style="display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-pen-nib" style="color: #ff6801;"></i>
+                <span>Additional Details (Optional)</span>
+              </div>
+              <textarea class="custom-textarea" placeholder="Any other information (e.g., survey numbers, boundaries, agreement terms, nearby developments, etc.)"></textarea>
+            </div>
+          </section>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn-orange" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px;">
+            <i class="fa-solid fa-paper-plane"></i> Submit Sell Request
+          </button>
+
+          <!-- Verification Note Box -->
+          <div class="info-note-box">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>After submission, our team will verify the details and connect you with genuine buyers for a smooth and transparent transaction.</span>
+          </div>
+
+        </form>
+
+      </main>
+
+      <!-- Bottom Floating Nav Bar -->
+      <nav class="bottom-floating-nav">
+        <button onclick="openCallModal()" class="bottom-nav-pill pill-call-green">
+          <i class="fa-solid fa-phone"></i> Call
+        </button>
+        <a href="write-review.html" class="bottom-nav-pill pill-review-blue">
+          <i class="fa-solid fa-star"></i> Write a Review
+        </a>
+        <a href="properties.html" class="bottom-nav-pill pill-properties-purple">
+          <i class="fa-solid fa-layer-group"></i> Open Properties
+        </a>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Shared Modals -->
+  <div id="callModal" class="modal-backdrop">
+    <div class="modal-dialog-box">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div class="call-options-grid">
+          <a href="tel:+919876543210" class="call-option-item">
+            <div class="call-option-icon phone"><i class="fa-solid fa-phone"></i></div>
+            <div class="call-option-text">
+              <h4>Direct Call Hotline</h4>
+              <p>+91 98765 43210 (Toll-Free Instant Connect)</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+          <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+          <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 400px; text-align: center;">
+      <div class="modal-body-scroll" style="align-items: center; padding: 30px 20px;">
+        <div style="width: 65px; height: 65px; border-radius: 50%; background: #ecfdf5; color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 id="successModalTitle" style="font-size: 18px; font-weight: 800; color: #033a88; margin-bottom: 8px;">Success!</h3>
+        <p id="successModalBody" style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 16px;"></p>
+        <div style="background: #f1f5f9; padding: 6px 14px; border-radius: 8px; font-size: 12px; color: #334155; margin-bottom: 18px;">
+          Reference ID: <strong id="successModalRef" style="color: #0754bd;"></strong>
+        </div>
+        <button onclick="closeModal('successModal')" class="btn-orange" style="width: 100%; justify-content: center;">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function selectSellPropType(card, type) {
+      document.querySelectorAll('.prop-type-choice-grid .prop-choice-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const headline = document.getElementById('selectedCategoryHeadline');
+      if (type === 'amara') {
+        headline.textContent = 'Amaravathi LPS Plots – Sell Requirement';
+      } else {
+        headline.textContent = '2nd Pooling Lands – Sell Requirement';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimplyBuySell - Buy, Sell & Invest with Trust</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Viewport Switcher & Quick Navigation Bar -->
+  <div class="viewport-control-bar">
+    <div class="viewport-info">
+      <span class="viewport-badge">SimplyBuySell</span>
+      <span>Real Estate Platform</span>
+    </div>
+    <div class="viewport-btns">
+      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
+      <button id="viewMobileBtn" class="view-btn">
+        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
+      </button>
+      <button id="viewDesktopBtn" class="view-btn active">
+        <i class="fa-solid fa-desktop"></i> Desktop View
+      </button>
+    </div>
+  </div>
+
+  <!-- Master App Viewport Container -->
+  <div class="app-viewport-wrapper mode-desktop">
+    <div class="app-container">
+
+      <!-- iOS Status Bar -->
+      <div class="ios-status-bar">
+        <span id="statusClock">9:41</span>
+        <div class="dynamic-island"></div>
+        <div class="status-right">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </div>
+
+      <!-- Main App Header -->
+      <header class="app-header">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
+        </a>
+        <button onclick="openLanguageModal()" class="lang-dropdown-btn">
+          <i class="fa-solid fa-globe"></i>
+          <span id="selectedLangText">English</span>
+          <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+        </button>
+      </header>
+
+      <!-- Top Navigation Bar -->
+      <nav class="top-nav-bar">
+        <a href="index.html" class="nav-tab-item active">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="motto.html" class="nav-tab-item">
+          <i class="fa-solid fa-bullseye"></i> Our Motto
+        </a>
+        <a href="buy.html" class="nav-tab-item">
+          <i class="fa-solid fa-handshake"></i> Buy / Sell
+        </a>
+      </nav>
+
+      <!-- Scrollable Page Content -->
+      <main class="page-content">
+
+        <!-- 1. Hero Banner Card -->
+        <section class="hero-card">
+          <img src="assets/images/hero-villa.png" alt="Luxury Villa" class="hero-bg-media">
+          <div class="hero-overlay"></div>
+
+          <!-- Floating Trusted Platform Badge -->
+          <div class="trusted-badge-float">
+            <i class="fa-solid fa-certificate"></i>
+            <span>Trusted<br>Platform</span>
+          </div>
+
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Buy / Sell <span class="accent">Property</span>
+            </h1>
+            <p class="hero-subtitle">
+              List your property or find the right one with trust and transparency.
+            </p>
+            <div class="hero-actions">
+              <a href="properties.html" class="btn-orange">
+                <i class="fa-solid fa-magnifying-glass"></i> Explore Properties ➔
+              </a>
+              <a href="sell.html" class="btn-outline-white">
+                <i class="fa-solid fa-house-circle-check"></i> List Your Property
+              </a>
+            </div>
+          </div>
+
+          <!-- Carousel Dots -->
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </section>
+
+        <!-- 2. Featured High-Demand Properties (Amaravathi LPS & 2nd Pooling) -->
+        <section class="featured-tri-grid">
+          <!-- Card 1 -->
+          <a href="properties.html" class="feat-mini-card">
+            <img src="assets/images/feat-amara.png" alt="Amaravathi LPS Plots">
+            <div class="feat-card-body">
+              <h4><i class="fa-solid fa-landmark"></i> Amaravathi LPS Plots</h4>
+              <p>Premium Plots in Amaravathi</p>
+              <span class="feat-explore-link">Explore ➔</span>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a href="properties.html" class="feat-mini-card">
+            <img src="assets/images/feat-pool.png" alt="2nd Pooling Lands">
+            <div class="feat-card-body">
+              <h4><i class="fa-solid fa-users-viewfinder"></i> 2nd Pooling Lands</h4>
+              <p>Secure Your Future</p>
+              <span class="feat-explore-link">Explore ➔</span>
+            </div>
+          </a>
+
+          <!-- Card 3 (Full Width) -->
+          <a href="properties.html" class="feat-mini-card full-width">
+            <img src="assets/images/feat-propsale.png" alt="Properties for Sale">
+            <div class="feat-card-body">
+              <h4><i class="fa-solid fa-house-chimney"></i> Properties for Sale</h4>
+              <p>Plots • Flats • Houses • Villas</p>
+              <span class="feat-explore-link">Explore ➔</span>
+            </div>
+          </a>
+        </section>
+
+        <!-- 3. About Us Preview Card -->
+        <section class="about-preview-card">
+          <div class="about-img-wrap">
+            <img src="assets/images/about-villa.png" alt="About SimplyBuySell">
+          </div>
+          <div class="about-text-content">
+            <div class="section-tag">
+              — About <span>Us</span>
+            </div>
+            <h3 class="about-title">Your Trusted Real Estate Partner</h3>
+            <p class="about-desc">
+              At SimplyBuySell, we help you find the perfect property with transparency, trust and ease. Whether you want to buy, sell, or invest — we are here to make your real estate journey simple and stress-free.
+            </p>
+            <div style="margin-top: 6px;">
+              <a href="about.html" class="btn-orange" style="padding: 9px 18px; font-size: 13px;">
+                Learn More ➔
+              </a>
+            </div>
+            <div class="about-pillars-grid">
+              <div class="pillar-item">
+                <i class="fa-solid fa-shield-check"></i>
+                <span>Trusted & Transparent</span>
+              </div>
+              <div class="pillar-item">
+                <i class="fa-solid fa-city"></i>
+                <span>Wide Range of Properties</span>
+              </div>
+              <div class="pillar-item">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Customer First Approach</span>
+              </div>
+              <div class="pillar-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Expert Guidance</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Why Choose SimplyBuySell? Horizontal Badges -->
+        <section class="why-choose-section">
+          <h3 class="section-header-title">
+            Why Choose <span class="highlight">SimplyBuySell?</span>
+          </h3>
+          <div class="badges-scroll-row">
+            <div class="feature-badge-pill">
+              <div class="badge-icon-box" style="color: #16a34a; background: #dcfce7;">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h5>Trusted & Transparent</h5>
+              <span>100% Genuine Deals</span>
+            </div>
+            <div class="feature-badge-pill">
+              <div class="badge-icon-box" style="color: #eab308; background: #fef9c3;">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <h5>Fast & Easy Process</h5>
+              <span>Quick Service</span>
+            </div>
+            <div class="feature-badge-pill">
+              <div class="badge-icon-box" style="color: #0284c7; background: #e0f2fe;">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <h5>Expert Support</h5>
+              <span>Always With You</span>
+            </div>
+            <div class="feature-badge-pill">
+              <div class="badge-icon-box" style="color: #2563eb; background: #dbeafe;">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <h5>Secure Transactions</h5>
+              <span>Your Data Is Safe</span>
+            </div>
+            <div class="feature-badge-pill">
+              <div class="badge-icon-box" style="color: #9333ea; background: #f3e8ff;">
+                <i class="fa-solid fa-gem"></i>
+              </div>
+              <h5>Best Deals</h5>
+              <span>Get the Best Value</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Interactive Buy / Sell Property Form Card -->
+        <section class="interactive-search-card">
+          <div class="search-card-header">
+            <div class="header-brand-title">
+              <i class="fa-solid fa-house-chimney"></i>
+              <div>
+                <h3>Buy / Sell Property</h3>
+                <p>Find, List and Grow with SimplyBuySell</p>
+              </div>
+            </div>
+            <div class="tab-pill-toggle">
+              <button type="button" class="active"><i class="fa-solid fa-cart-shopping"></i> Buy Property</button>
+            </div>
+          </div>
+
+          <form id="homeSearchForm" class="search-form-body">
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Property Type <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-house"></i>
+                  <select id="homePropType" class="custom-select" required>
+                    <option value="" disabled selected>Select Property Type</option>
+                    <option value="Plots">Residential Plots</option>
+                    <option value="Flats">Apartments / Flats</option>
+                    <option value="Houses">Independent Houses</option>
+                    <option value="Villas">Luxury Villas</option>
+                    <option value="Commercial">Commercial Spaces</option>
+                    <option value="Farm Lands">Farm Lands</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Location / City <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <select id="homeLocation" class="custom-select" required>
+                    <option value="" disabled selected>Select Location</option>
+                    <option value="Vizag">Vizag</option>
+                    <option value="Amaravathi">Amaravathi</option>
+                    <option value="Vijayawada">Vijayawada</option>
+                    <option value="Guntur">Guntur</option>
+                    <option value="Kakinada">Kakinada</option>
+                    <option value="Rajahmundry">Rajahmundry</option>
+                    <option value="Tirupati">Tirupati</option>
+                    <option value="Nellore">Nellore</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Property Details</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <input type="text" class="custom-input" placeholder="Any additional details...">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Contact Number <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-phone"></i>
+                  <input type="tel" class="custom-input" placeholder="Enter your mobile number" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row-grid">
+              <div class="form-group">
+                <label class="form-label">Budget Range</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+                  <select id="homeBudget" class="custom-select">
+                    <option value="" disabled selected>Select Budget</option>
+                    <option value="under-50l">Under ₹50 Lakhs</option>
+                    <option value="50l-1cr">₹50 Lakhs - ₹1 Crore</option>
+                    <option value="above-1cr">Above ₹1 Crore</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Name <span class="req">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" class="custom-input" placeholder="Enter your name" required>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-orange" style="margin-top: 6px; width: 100%; justify-content: center;">
+              <i class="fa-solid fa-magnifying-glass"></i> Search Properties
+            </button>
+          </form>
+        </section>
+
+        <!-- 6. Our Property Categories 4-Card Grid -->
+        <section>
+          <h3 class="section-header-title" style="margin-bottom: 12px;">
+            Our Property <span class="highlight">Categories</span>
+          </h3>
+          <div class="categories-grid">
+            <a href="properties.html?type=Plots" class="category-card">
+              <img src="assets/images/cat-plots.png" alt="Plots">
+              <div class="category-card-overlay"></div>
+              <div class="category-info">
+                <span class="category-name">Plots</span>
+                <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+            <a href="properties.html?type=Flats" class="category-card">
+              <img src="assets/images/cat-flats.png" alt="Flats">
+              <div class="category-card-overlay"></div>
+              <div class="category-info">
+                <span class="category-name">Flats</span>
+                <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+            <a href="properties.html?type=Houses" class="category-card">
+              <img src="assets/images/cat-houses.png" alt="Houses">
+              <div class="category-card-overlay"></div>
+              <div class="category-info">
+                <span class="category-name">Houses</span>
+                <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+            <a href="properties.html?type=Villas" class="category-card">
+              <img src="assets/images/cat-villas.png" alt="Villas">
+              <div class="category-card-overlay"></div>
+              <div class="category-info">
+                <span class="category-name">Villas</span>
+                <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 7. Our Happy Customers Reviews Carousel -->
+        <section class="testimonials-card">
+          <div class="testimonials-header">
+            <h3>Our Happy Customers Reviews</h3>
+          </div>
+          <div class="testimonials-slider">
+            <button id="prevTestimonial" class="slider-arrow-btn" aria-label="Previous Review">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="testimonials-track-wrap">
+              <!-- Slide 1 -->
+              <div class="testimonial-slide active">
+                <img src="assets/images/avatar-sneha.png" alt="Sneha Reddy" class="testimonial-avatar">
+                <div class="star-rating-row">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-quote">"Amazing platform! Found my dream home."</p>
+                <span class="testimonial-author">– Sneha Reddy</span>
+              </div>
+              <!-- Slide 2 -->
+              <div class="testimonial-slide">
+                <img src="assets/images/avatar-rahul.png" alt="Rahul Varma" class="testimonial-avatar">
+                <div class="star-rating-row">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-quote">"Very helpful and easy to use."</p>
+                <span class="testimonial-author">– Rahul Varma</span>
+              </div>
+              <!-- Slide 3 -->
+              <div class="testimonial-slide">
+                <img src="assets/images/avatar-priya.png" alt="Priya Sharma" class="testimonial-avatar">
+                <div class="star-rating-row">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-quote">"Trusted and reliable service!"</p>
+                <span class="testimonial-author">– Priya Sharma</span>
+              </div>
+            </div>
+            <button id="nextTestimonial" class="slider-arrow-btn" aria-label="Next Review">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="reviews.html" style="font-size: 12px; font-weight: 700; color: #0754bd; text-decoration: none;">
+              Read all verified reviews ➔
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Floating Bottom Dock Navigation -->
+      <nav class="bottom-floating-nav">
+        <a href="contact.html" class="bottom-nav-pill pill-contact">
+          <i class="fa-solid fa-phone"></i> Contact
+        </a>
+        <a href="reviews.html" class="bottom-nav-pill pill-contact">
+          <i class="fa-solid fa-star"></i> Reviews
+        </a>
+        <a href="properties.html" class="bottom-nav-pill pill-properties-purple">
+          <i class="fa-solid fa-house-chimney"></i> Open Properties
+        </a>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Shared Modals (Call, Language, Review, Property Details, Success) -->
+
+  <!-- 1. Quick Call Modal -->
+  <div id="callModal" class="modal-backdrop">
+    <div class="modal-dialog-box">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <p style="font-size: 13px; color: #64748b;">Our property specialists are available 24/7 to assist with your real estate needs.</p>
+        <div class="call-options-grid">
+          <a href="tel:+919876543210" class="call-option-item">
+            <div class="call-option-icon phone"><i class="fa-solid fa-phone"></i></div>
+            <div class="call-option-text">
+              <h4>Direct Call Hotline</h4>
+              <p>+91 98765 43210 (Toll-Free Instant Connect)</p>
+            </div>
+          </a>
+          <a href="https://wa.me/919876543210?text=Hi%20SimplyBuySell,%20I%20am%20interested%20in%20properties" target="_blank" class="call-option-item">
+            <div class="call-option-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="call-option-text">
+              <h4>Chat on WhatsApp</h4>
+              <p>Instant property brochures, location links & pricing</p>
+            </div>
+          </a>
+          <a href="contact.html" class="call-option-item">
+            <div class="call-option-icon support"><i class="fa-solid fa-envelope"></i></div>
+            <div class="call-option-text">
+              <h4>Submit an Online Inquiry</h4>
+              <p>Leave details and we will call you within 24 hours</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Language Switcher Modal -->
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+            <div class="call-option-text">
+              <h4>English (Default)</h4>
+              <p>Standard International Version</p>
+            </div>
+          </button>
+          <button onclick="selectLanguage('తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text">
+              <h4>తెలుగు (Telugu)</h4>
+              <p>ఆంధ్రప్రదేశ్ & తెలంగాణ రియల్ ఎస్టేట్</p>
+            </div>
+          </button>
+          <button onclick="selectLanguage('हिन्दी (Hindi)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #16a34a;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text">
+              <h4>हिन्दी (Hindi)</h4>
+              <p>भारत भर में रियल एस्टेट सेवाएं</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Property Details Modal -->
+  <div id="propDetailsModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 520px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-house-chimney"></i> Property Details</h3>
+        <button onclick="closeModal('propDetailsModal')" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll" id="propDetailsModalBody">
+        <!-- Injected dynamically by main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Success Confirmation Modal -->
+  <div id="successModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 400px; text-align: center;">
+      <div class="modal-body-scroll" style="align-items: center; padding: 30px 20px;">
+        <div style="width: 65px; height: 65px; border-radius: 50%; background: #ecfdf5; color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.2);">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 id="successModalTitle" style="font-size: 18px; font-weight: 800; color: #033a88; margin-bottom: 8px;">Success!</h3>
+        <p id="successModalBody" style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 16px;"></p>
+        <div style="background: #f1f5f9; padding: 6px 14px; border-radius: 8px; font-size: 12px; color: #334155; margin-bottom: 18px;">
+          Reference ID: <strong id="successModalRef" style="color: #0754bd;"></strong>
+        </div>
+        <button onclick="closeModal('successModal')" class="btn-orange" style="width: 100%; justify-content: center;">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
