@@ -281,3 +281,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentLang = localStorage.getItem("sbs_lang") || "en";
   setAppLanguage(currentLang);
 });
+
