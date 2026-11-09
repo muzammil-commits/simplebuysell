@@ -10,38 +10,10 @@
 </head>
 <body>
 
-  <!-- Viewport Switcher & Quick Navigation Bar -->
-  <div class="viewport-control-bar">
-    <div class="viewport-info">
-      <span class="viewport-badge">SimplyBuySell</span>
-      <span>Real Stories & Testimonials</span>
-    </div>
-    <div class="viewport-btns">
-      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
-      <button id="viewMobileBtn" class="view-btn">
-        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
-      </button>
-      <button id="viewDesktopBtn" class="view-btn active">
-        <i class="fa-solid fa-desktop"></i> Desktop View
-      </button>
-    </div>
-  </div>
-
-  <div class="app-viewport-wrapper mode-desktop">
+  <div class="app-viewport-wrapper">
     <div class="app-container">
 
-      <!-- iOS Status Bar -->
-      <div class="ios-status-bar">
-        <span id="statusClock">9:41</span>
-        <div class="dynamic-island"></div>
-        <div class="status-right">
-          <i class="fa-solid fa-signal"></i>
-          <i class="fa-solid fa-wifi"></i>
-          <i class="fa-solid fa-battery-full"></i>
-        </div>
-      </div>
-
-      <!-- App Header -->
+      <!-- Main App Header -->
       <header class="app-header">
         <a href="index.html" class="brand-logo">
           <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
@@ -56,21 +28,24 @@
       <!-- Top Nav Bar -->
       <nav class="top-nav-bar">
         <a href="index.html" class="nav-tab-item">
-          <i class="fa-solid fa-house"></i> Home
+          <i class="fa-solid fa-house"></i>
+          <span data-i18n="nav_home">Home</span>
         </a>
         <a href="motto.html" class="nav-tab-item">
-          <i class="fa-solid fa-bullseye"></i> Our Motto
+          <i class="fa-solid fa-bullseye"></i>
+          <span data-i18n="nav_motto">Our Motto</span>
         </a>
         <a href="buy.html" class="nav-tab-item">
-          <i class="fa-solid fa-handshake"></i> Buy / Sell
+          <i class="fa-solid fa-handshake"></i>
+          <span data-i18n="nav_buy_sell">Buy / Sell</span>
         </a>
       </nav>
 
       <!-- Page Content -->
       <main class="page-content">
 
-        <!-- Banner Header (matches image copy 5.png) -->
-        <section class="page-title-banner">
+        <!-- Banner Header -->
+        <section class="page-title-banner reveal-on-scroll">
           <img src="assets/images/city-banner.png" alt="Our Reviews" class="banner-bg-img">
           <div class="banner-content">
             <h1>Our <span class="highlight">Reviews</span></h1>
@@ -78,19 +53,19 @@
           </div>
         </section>
 
-        <!-- Section Intro with Star -->
+        <!-- Section Intro -->
         <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="width: 36px; height: 36px; border-radius: 50%; background: #fef3c7; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 18px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #fef3c7; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 20px;">
             <i class="fa-solid fa-star"></i>
           </div>
           <div>
-            <h3 style="font-size: 16px; font-weight: 800; color: #033a88;">What Our Customers Say</h3>
+            <h3 style="font-size: 17px; font-weight: 800; color: #033a88;">What Our Customers Say</h3>
             <p style="font-size: 12px; color: #64748b;">Real stories. Real satisfaction.</p>
           </div>
         </div>
 
-        <!-- Review Cards List (matches image copy 5.png) -->
-        <section style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Review Cards List (Grand Circular Frames) -->
+        <section style="display: flex; flex-direction: column; gap: 14px;" class="reveal-on-scroll">
           <!-- Review 1: Rahul Sharma -->
           <div class="review-full-card">
             <img src="assets/images/reviewer-rahul.png" alt="Rahul Sharma" class="rev-avatar">
@@ -140,8 +115,8 @@
           </div>
         </section>
 
-        <!-- Stats 4-Item Grid (matches image copy 5.png) -->
-        <section class="reviews-stats-grid">
+        <!-- Stats 4-Item Grid -->
+        <section class="reviews-stats-grid reveal-on-scroll">
           <div class="stat-item-box">
             <i class="fa-solid fa-users"></i>
             <h4>10,000+</h4>
@@ -164,10 +139,10 @@
           </div>
         </section>
 
-        <!-- Trust Motto Target Banner (matches image copy 5.png) -->
-        <section class="motto-highlight-box">
-          <div style="width: 48px; height: 48px; border-radius: 50%; background: #fed7aa; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <i class="fa-solid fa-bullseye" style="color: #ea580c; font-size: 24px;"></i>
+        <!-- Trust Motto Target Banner -->
+        <section class="motto-highlight-box reveal-on-scroll">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: #fed7aa; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <i class="fa-solid fa-bullseye" style="color: #ea580c; font-size: 26px;"></i>
           </div>
           <div class="motto-highlight-text">
             <h4>Your Trust is Our Strength.<br>Your Satisfaction is Our Goal.</h4>
@@ -176,14 +151,14 @@
 
         <!-- Button to write a review -->
         <div style="text-align: center; margin-top: 4px;">
-          <a href="write-review.html" class="btn-orange" style="width: 100%; justify-content: center;">
+          <a href="write-review.html" class="btn-orange" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px;">
             <i class="fa-solid fa-pen-to-square"></i> Share Your Review Now
           </a>
         </div>
 
       </main>
 
-      <!-- Bottom Floating Nav Bar -->
+      <!-- Bottom Floating Nav Dock -->
       <nav class="bottom-floating-nav">
         <button onclick="openCallModal()" class="bottom-nav-pill pill-call-green">
           <i class="fa-solid fa-phone"></i> Call
@@ -200,10 +175,35 @@
   </div>
 
   <!-- Shared Modals -->
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="selectLanguage('en', 'English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+            <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
+          </button>
+          <button onclick="selectLanguage('te', 'తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text"><h4>తెలుగు (Telugu)</h4><p>ఆంధ్రప్రదేశ్ & తెలంగాణ రియల్ ఎస్టేట్</p></div>
+          </button>
+          <button onclick="selectLanguage('hi', 'हिन्दी (Hindi)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #16a34a;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text"><h4>हिन्दी (Hindi)</h4><p>भारत भर में रियल एस्टेट सेवाएं</p></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="callModal" class="modal-backdrop">
     <div class="modal-dialog-box">
       <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <h3><i class="fa-solid fa-phone-volume"></i> SimplyBuySell Support</h3>
         <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body-scroll">
@@ -220,22 +220,8 @@
     </div>
   </div>
 
-  <div id="languageModal" class="modal-backdrop">
-    <div class="modal-dialog-box" style="max-width: 380px;">
-      <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
-        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body-scroll">
-        <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-          <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
-          <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

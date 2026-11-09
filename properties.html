@@ -10,38 +10,10 @@
 </head>
 <body>
 
-  <!-- Viewport Switcher & Quick Navigation Bar -->
-  <div class="viewport-control-bar">
-    <div class="viewport-info">
-      <span class="viewport-badge">SimplyBuySell</span>
-      <span>Open Properties Directory</span>
-    </div>
-    <div class="viewport-btns">
-      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
-      <button id="viewMobileBtn" class="view-btn">
-        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
-      </button>
-      <button id="viewDesktopBtn" class="view-btn active">
-        <i class="fa-solid fa-desktop"></i> Desktop View
-      </button>
-    </div>
-  </div>
-
-  <div class="app-viewport-wrapper mode-desktop">
+  <div class="app-viewport-wrapper">
     <div class="app-container">
 
-      <!-- iOS Status Bar -->
-      <div class="ios-status-bar">
-        <span id="statusClock">9:41</span>
-        <div class="dynamic-island"></div>
-        <div class="status-right">
-          <i class="fa-solid fa-signal"></i>
-          <i class="fa-solid fa-wifi"></i>
-          <i class="fa-solid fa-battery-full"></i>
-        </div>
-      </div>
-
-      <!-- App Header -->
+      <!-- Main App Header -->
       <header class="app-header">
         <a href="index.html" class="brand-logo">
           <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
@@ -56,30 +28,33 @@
       <!-- Top Nav Bar -->
       <nav class="top-nav-bar">
         <a href="index.html" class="nav-tab-item">
-          <i class="fa-solid fa-house"></i> Home
+          <i class="fa-solid fa-house"></i>
+          <span data-i18n="nav_home">Home</span>
         </a>
         <a href="motto.html" class="nav-tab-item">
-          <i class="fa-solid fa-bullseye"></i> Our Motto
+          <i class="fa-solid fa-bullseye"></i>
+          <span data-i18n="nav_motto">Our Motto</span>
         </a>
         <a href="buy.html" class="nav-tab-item">
-          <i class="fa-solid fa-handshake"></i> Buy / Sell
+          <i class="fa-solid fa-handshake"></i>
+          <span data-i18n="nav_buy_sell">Buy / Sell</span>
         </a>
       </nav>
 
       <!-- Page Content -->
       <main class="page-content">
 
-        <!-- Page Header Banner -->
-        <section class="page-title-banner">
-          <img src="assets/images/hero-villa.png" alt="Open Properties" class="banner-bg-img">
+        <!-- Banner Header -->
+        <section class="page-title-banner reveal-on-scroll">
+          <img src="assets/images/hero-1.png" alt="Open Properties" class="banner-bg-img">
           <div class="banner-content">
             <h1>Open <span class="highlight">Properties</span></h1>
             <p>Explore the best properties, just for you.</p>
           </div>
         </section>
 
-        <!-- Search & Filter Controls -->
-        <section class="properties-filter-bar">
+        <!-- Search & Filter Bar -->
+        <section class="properties-filter-bar reveal-on-scroll">
           <div class="search-input-wrap">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" id="searchPropInput" placeholder="Search properties..." oninput="filterProperties()">
@@ -103,7 +78,7 @@
               <option value="Plots">Plots</option>
               <option value="Houses">Houses</option>
               <option value="Commercial">Commercial</option>
-              <option value="Farm Lands">Farm Land</option>
+              <option value="Farm Lands">Farm Lands</option>
             </select>
 
             <select id="filterBudget" class="filter-select" onchange="filterProperties()">
@@ -116,8 +91,7 @@
         </section>
 
         <!-- 6 Properties Cards Grid -->
-        <section class="property-cards-grid" id="propertiesGridContainer">
-          <!-- Populated by JavaScript and pre-rendered for instant visual fidelity -->
+        <section class="property-cards-grid reveal-on-scroll" id="propertiesGridContainer">
           <!-- 1. Luxury Villa -->
           <div class="property-card-item">
             <div class="prop-img-box">
@@ -275,7 +249,7 @@
           </div>
         </section>
 
-        <!-- Pagination Controls -->
+        <!-- Pagination -->
         <section class="pagination-wrap">
           <button class="page-num-btn active">1</button>
           <button class="page-num-btn" onclick="showToast('Page 2 loaded', 'info')">2</button>
@@ -285,8 +259,8 @@
           </button>
         </section>
 
-        <!-- Find Your Dream Property Today CTA Card -->
-        <section class="dream-cta-card">
+        <!-- Dream CTA -->
+        <section class="dream-cta-card reveal-on-scroll">
           <div style="font-size: 32px; color: #0754bd;">
             <i class="fa-solid fa-house-circle-check"></i>
           </div>
@@ -294,14 +268,14 @@
             <h4>Find Your Dream Property Today!</h4>
             <p>With SimplyBuySell, your dream is just a click away.</p>
           </div>
-          <a href="buy.html" class="btn-orange" style="padding: 8px 14px; font-size: 12px; white-space: nowrap;">
+          <a href="buy.html" class="btn-orange" style="padding: 10px 18px; font-size: 13px; white-space: nowrap;">
             <i class="fa-solid fa-house"></i> Explore More ➔
           </a>
         </section>
 
       </main>
 
-      <!-- Bottom Floating Nav Bar (matches image copy 2.png) -->
+      <!-- Bottom Floating Nav Dock -->
       <nav class="bottom-floating-nav">
         <button onclick="openCallModal()" class="bottom-nav-pill pill-call-green">
           <i class="fa-solid fa-phone"></i> Call
@@ -318,10 +292,35 @@
   </div>
 
   <!-- Shared Modals -->
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="selectLanguage('en', 'English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+            <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
+          </button>
+          <button onclick="selectLanguage('te', 'తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text"><h4>తెలుగు (Telugu)</h4><p>ఆంధ్రప్రదేశ్ & తెలంగాణ రియల్ ఎస్టేట్</p></div>
+          </button>
+          <button onclick="selectLanguage('hi', 'हिन्दी (Hindi)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #16a34a;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text"><h4>हिन्दी (Hindi)</h4><p>भारत भर में रियल एस्टेट सेवाएं</p></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="callModal" class="modal-backdrop">
     <div class="modal-dialog-box">
       <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <h3><i class="fa-solid fa-phone-volume"></i> SimplyBuySell Support</h3>
         <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body-scroll">
@@ -340,33 +339,6 @@
               <p>Instant property brochures, location links & pricing</p>
             </div>
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="languageModal" class="modal-backdrop">
-    <div class="modal-dialog-box" style="max-width: 380px;">
-      <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
-        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body-scroll">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
-            <div class="call-option-text">
-              <h4>English</h4>
-              <p>Standard International Version</p>
-            </div>
-          </button>
-          <button onclick="selectLanguage('తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
-            <div class="call-option-text">
-              <h4>తెలుగు (Telugu)</h4>
-              <p>ఆంధ్రప్రదేశ్ & తెలంగాణ</p>
-            </div>
-          </button>
         </div>
       </div>
     </div>
@@ -399,9 +371,9 @@
   </div>
 
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    // Handle query params on page load
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const typeParam = urlParams.get('type');

@@ -5,43 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SimplyBuySell - Buy, Sell & Invest with Trust</title>
   <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- Viewport Switcher & Quick Navigation Bar -->
-  <div class="viewport-control-bar">
-    <div class="viewport-info">
-      <span class="viewport-badge">SimplyBuySell</span>
-      <span>Real Estate Platform</span>
-    </div>
-    <div class="viewport-btns">
-      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
-      <button id="viewMobileBtn" class="view-btn">
-        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
-      </button>
-      <button id="viewDesktopBtn" class="view-btn active">
-        <i class="fa-solid fa-desktop"></i> Desktop View
-      </button>
-    </div>
-  </div>
-
   <!-- Master App Viewport Container -->
-  <div class="app-viewport-wrapper mode-desktop">
+  <div class="app-viewport-wrapper">
     <div class="app-container">
-
-      <!-- iOS Status Bar -->
-      <div class="ios-status-bar">
-        <span id="statusClock">9:41</span>
-        <div class="dynamic-island"></div>
-        <div class="status-right">
-          <i class="fa-solid fa-signal"></i>
-          <i class="fa-solid fa-wifi"></i>
-          <i class="fa-solid fa-battery-full"></i>
-        </div>
-      </div>
 
       <!-- Main App Header -->
       <header class="app-header">
@@ -58,48 +29,58 @@
       <!-- Top Navigation Bar -->
       <nav class="top-nav-bar">
         <a href="index.html" class="nav-tab-item active">
-          <i class="fa-solid fa-house"></i> Home
+          <i class="fa-solid fa-house"></i>
+          <span data-i18n="nav_home">Home</span>
         </a>
         <a href="motto.html" class="nav-tab-item">
-          <i class="fa-solid fa-bullseye"></i> Our Motto
+          <i class="fa-solid fa-bullseye"></i>
+          <span data-i18n="nav_motto">Our Motto</span>
         </a>
         <a href="buy.html" class="nav-tab-item">
-          <i class="fa-solid fa-handshake"></i> Buy / Sell
+          <i class="fa-solid fa-handshake"></i>
+          <span data-i18n="nav_buy_sell">Buy / Sell</span>
         </a>
       </nav>
 
       <!-- Scrollable Page Content -->
       <main class="page-content">
 
-        <!-- 1. Hero Banner Card -->
-        <section class="hero-card">
-          <img src="assets/images/hero-villa.png" alt="Luxury Villa" class="hero-bg-media">
+        <!-- 1. Grand Hero Section with 4 Changing Images -->
+        <section class="hero-card reveal-on-scroll">
+          <div class="hero-slider-bg-wrap">
+            <img src="assets/images/hero-slide-1.jpg" alt="Grand Luxury Villa 1" class="hero-slide-img active">
+            <img src="assets/images/hero-slide-2.jpg" alt="Grand Luxury Villa 2" class="hero-slide-img">
+            <img src="assets/images/hero-slide-3.jpg" alt="Grand Modern Architecture" class="hero-slide-img">
+            <img src="assets/images/hero-slide-4.jpg" alt="Grand Waterfront Villa" class="hero-slide-img">
+          </div>
           <div class="hero-overlay"></div>
 
           <!-- Floating Trusted Platform Badge -->
           <div class="trusted-badge-float">
             <i class="fa-solid fa-certificate"></i>
-            <span>Trusted<br>Platform</span>
+            <span data-i18n="trusted_badge">Trusted<br>Platform</span>
           </div>
 
           <div class="hero-content">
             <h1 class="hero-title">
-              Buy / Sell <span class="accent">Property</span>
+              <span data-i18n="hero_title_1">Buy / Sell</span> <span class="accent" data-i18n="hero_title_accent">Property</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-i18n="hero_subtitle">
               List your property or find the right one with trust and transparency.
             </p>
             <div class="hero-actions">
               <a href="properties.html" class="btn-orange">
-                <i class="fa-solid fa-magnifying-glass"></i> Explore Properties ➔
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span data-i18n="btn_explore">Explore Properties ➔</span>
               </a>
               <a href="sell.html" class="btn-outline-white">
-                <i class="fa-solid fa-house-circle-check"></i> List Your Property
+                <i class="fa-solid fa-house-circle-check"></i>
+                <span data-i18n="btn_list">List Your Property</span>
               </a>
             </div>
           </div>
 
-          <!-- Carousel Dots -->
+          <!-- Carousel 4 Dots -->
           <div class="carousel-dots">
             <span class="dot active"></span>
             <span class="dot"></span>
@@ -109,14 +90,14 @@
         </section>
 
         <!-- 2. Featured High-Demand Properties (Amaravathi LPS & 2nd Pooling) -->
-        <section class="featured-tri-grid">
+        <section class="featured-tri-grid reveal-on-scroll">
           <!-- Card 1 -->
           <a href="properties.html" class="feat-mini-card">
             <img src="assets/images/feat-amara.png" alt="Amaravathi LPS Plots">
             <div class="feat-card-body">
-              <h4><i class="fa-solid fa-landmark"></i> Amaravathi LPS Plots</h4>
-              <p>Premium Plots in Amaravathi</p>
-              <span class="feat-explore-link">Explore ➔</span>
+              <h4><i class="fa-solid fa-landmark"></i> <span data-i18n="feat_amara_title">Amaravathi LPS Plots</span></h4>
+              <p data-i18n="feat_amara_desc">Premium Plots in Amaravathi</p>
+              <span class="feat-explore-link"><span data-i18n="explore_link">Explore ➔</span></span>
             </div>
           </a>
 
@@ -124,9 +105,9 @@
           <a href="properties.html" class="feat-mini-card">
             <img src="assets/images/feat-pool.png" alt="2nd Pooling Lands">
             <div class="feat-card-body">
-              <h4><i class="fa-solid fa-users-viewfinder"></i> 2nd Pooling Lands</h4>
-              <p>Secure Your Future</p>
-              <span class="feat-explore-link">Explore ➔</span>
+              <h4><i class="fa-solid fa-users-viewfinder"></i> <span data-i18n="feat_pool_title">2nd Pooling Lands</span></h4>
+              <p data-i18n="feat_pool_desc">Secure Your Future</p>
+              <span class="feat-explore-link"><span data-i18n="explore_link">Explore ➔</span></span>
             </div>
           </a>
 
@@ -134,137 +115,152 @@
           <a href="properties.html" class="feat-mini-card full-width">
             <img src="assets/images/feat-propsale.png" alt="Properties for Sale">
             <div class="feat-card-body">
-              <h4><i class="fa-solid fa-house-chimney"></i> Properties for Sale</h4>
-              <p>Plots • Flats • Houses • Villas</p>
-              <span class="feat-explore-link">Explore ➔</span>
+              <h4><i class="fa-solid fa-house-chimney"></i> <span data-i18n="feat_propsale_title">Properties for Sale</span></h4>
+              <p data-i18n="feat_propsale_desc">Plots • Flats • Houses • Villas</p>
+              <span class="feat-explore-link"><span data-i18n="explore_link">Explore ➔</span></span>
             </div>
           </a>
         </section>
 
-        <!-- 3. About Us Preview Card -->
-        <section class="about-preview-card">
+        <!-- 3. About Us Section Card -->
+        <section class="about-preview-card reveal-on-scroll">
           <div class="about-img-wrap">
             <img src="assets/images/about-villa.png" alt="About SimplyBuySell">
           </div>
           <div class="about-text-content">
-            <div class="section-tag">
-              — About <span>Us</span>
-            </div>
-            <h3 class="about-title">Your Trusted Real Estate Partner</h3>
-            <p class="about-desc">
+            <div class="section-tag" data-i18n="about_tag">— About Us</div>
+            <h3 class="about-title" data-i18n="about_title">Your Trusted Real Estate Partner</h3>
+            <p class="about-desc" data-i18n="about_desc">
               At SimplyBuySell, we help you find the perfect property with transparency, trust and ease. Whether you want to buy, sell, or invest — we are here to make your real estate journey simple and stress-free.
             </p>
-            <div style="margin-top: 6px;">
-              <a href="about.html" class="btn-orange" style="padding: 9px 18px; font-size: 13px;">
-                Learn More ➔
+            <div style="margin-top: 4px;">
+              <a href="about.html" class="btn-orange" style="padding: 10px 20px; font-size: 13px;">
+                <span data-i18n="btn_learn_more">Learn More ➔</span>
               </a>
             </div>
             <div class="about-pillars-grid">
               <div class="pillar-item">
                 <i class="fa-solid fa-shield-check"></i>
-                <span>Trusted & Transparent</span>
+                <span data-i18n="pillar_trusted">Trusted & Transparent</span>
               </div>
               <div class="pillar-item">
                 <i class="fa-solid fa-city"></i>
-                <span>Wide Range of Properties</span>
+                <span data-i18n="pillar_wide">Wide Range of Properties</span>
               </div>
               <div class="pillar-item">
                 <i class="fa-solid fa-handshake"></i>
-                <span>Customer First Approach</span>
+                <span data-i18n="pillar_customer">Customer First Approach</span>
               </div>
               <div class="pillar-item">
                 <i class="fa-solid fa-chart-line"></i>
-                <span>Expert Guidance</span>
+                <span data-i18n="pillar_guidance">Expert Guidance</span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- 4. Why Choose SimplyBuySell? Horizontal Badges -->
-        <section class="why-choose-section">
-          <h3 class="section-header-title">
+        <!-- 4. Why Choose SimplyBuySell? - Fully Visible Grid (Fixed image copy 12.png) -->
+        <section class="why-choose-section reveal-on-scroll">
+          <h3 class="section-header-title" data-i18n="why_choose_title">
             Why Choose <span class="highlight">SimplyBuySell?</span>
           </h3>
-          <div class="badges-scroll-row">
+          <div class="why-choose-grid">
+            <!-- Badge 1 -->
             <div class="feature-badge-pill">
               <div class="badge-icon-box" style="color: #16a34a; background: #dcfce7;">
                 <i class="fa-solid fa-shield-halved"></i>
               </div>
-              <h5>Trusted & Transparent</h5>
-              <span>100% Genuine Deals</span>
+              <h5 data-i18n="badge_trusted_title">Trusted & Transparent</h5>
+              <span data-i18n="badge_trusted_desc">100% Genuine Deals</span>
             </div>
+
+            <!-- Badge 2 -->
             <div class="feature-badge-pill">
-              <div class="badge-icon-box" style="color: #eab308; background: #fef9c3;">
+              <div class="badge-icon-box" style="color: #ea580c; background: #ffedd5;">
                 <i class="fa-solid fa-bolt"></i>
               </div>
-              <h5>Fast & Easy Process</h5>
-              <span>Quick Service</span>
+              <h5 data-i18n="badge_fast_title">Fast & Easy Process</h5>
+              <span data-i18n="badge_fast_desc">Quick Service</span>
             </div>
+
+            <!-- Badge 3 -->
             <div class="feature-badge-pill">
               <div class="badge-icon-box" style="color: #0284c7; background: #e0f2fe;">
                 <i class="fa-solid fa-headset"></i>
               </div>
-              <h5>Expert Support</h5>
-              <span>Always With You</span>
+              <h5 data-i18n="badge_support_title">Expert Support</h5>
+              <span data-i18n="badge_support_desc">Always With You</span>
             </div>
+
+            <!-- Badge 4 -->
             <div class="feature-badge-pill">
               <div class="badge-icon-box" style="color: #2563eb; background: #dbeafe;">
                 <i class="fa-solid fa-lock"></i>
               </div>
-              <h5>Secure Transactions</h5>
-              <span>Your Data Is Safe</span>
+              <h5 data-i18n="badge_secure_title">Secure Transactions</h5>
+              <span data-i18n="badge_secure_desc">Your Data Is Safe</span>
             </div>
-            <div class="feature-badge-pill">
-              <div class="badge-icon-box" style="color: #9333ea; background: #f3e8ff;">
+
+            <!-- Badge 5 (Full Width Accent) -->
+            <div class="feature-badge-pill full-width-badge">
+              <div class="badge-icon-box" style="color: #7c3aed; background: #f3e8ff;">
                 <i class="fa-solid fa-gem"></i>
               </div>
-              <h5>Best Deals</h5>
-              <span>Get the Best Value</span>
+              <div>
+                <h5 data-i18n="badge_deals_title">Best Deals</h5>
+                <span data-i18n="badge_deals_desc">Get the Best Value</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- 5. Interactive Buy / Sell Property Form Card -->
-        <section class="interactive-search-card">
+        <!-- 5. Interactive Buy / Sell Property Form Card (Fixed dropdown sizes & instant toggle) -->
+        <section class="interactive-search-card reveal-on-scroll">
           <div class="search-card-header">
             <div class="header-brand-title">
               <i class="fa-solid fa-house-chimney"></i>
               <div>
-                <h3>Buy / Sell Property</h3>
-                <p>Find, List and Grow with SimplyBuySell</p>
+                <h3 data-i18n="search_header_title">Buy / Sell Property</h3>
+                <p data-i18n="search_header_sub">Find, List and Grow with SimplyBuySell</p>
               </div>
             </div>
+            <!-- Quick Zero-delay Toggle -->
             <div class="tab-pill-toggle">
-              <button type="button" class="active"><i class="fa-solid fa-cart-shopping"></i> Buy Property</button>
+              <button type="button" id="homeToggleBuyBtn" class="active" onclick="toggleHomeFormAction('buy')">
+                <i class="fa-solid fa-cart-shopping"></i> <span data-i18n="tab_buy_prop">Buy Property</span>
+              </button>
+              <button type="button" id="homeToggleSellBtn" onclick="toggleHomeFormAction('sell')">
+                <i class="fa-solid fa-tag"></i> <span data-i18n="tab_sell_prop">Sell Property</span>
+              </button>
             </div>
           </div>
 
           <form id="homeSearchForm" class="search-form-body">
             <div class="form-row-grid">
               <div class="form-group">
-                <label class="form-label">Property Type <span class="req">*</span></label>
+                <label class="form-label" data-i18n="lbl_prop_type">Property Type *</label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-house"></i>
                   <select id="homePropType" class="custom-select" required>
-                    <option value="" disabled selected>Select Property Type</option>
-                    <option value="Plots">Residential Plots</option>
-                    <option value="Flats">Apartments / Flats</option>
-                    <option value="Houses">Independent Houses</option>
-                    <option value="Villas">Luxury Villas</option>
-                    <option value="Commercial">Commercial Spaces</option>
-                    <option value="Farm Lands">Farm Lands</option>
+                    <option value="" disabled selected data-i18n="opt_sel_type">Select Property Type</option>
+                    <option value="Plots" data-i18n="opt_plots">Residential Plots</option>
+                    <option value="Flats" data-i18n="opt_flats">Apartments / Flats</option>
+                    <option value="Houses" data-i18n="opt_houses">Independent Houses</option>
+                    <option value="Villas" data-i18n="opt_villas">Luxury Villas</option>
+                    <option value="Commercial" data-i18n="opt_commercial">Commercial Spaces</option>
+                    <option value="Farm Lands" data-i18n="opt_farmlands">Farm Lands</option>
                   </select>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Location / City <span class="req">*</span></label>
+                <label class="form-label" data-i18n="lbl_location">Location / City *</label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-location-dot"></i>
                   <select id="homeLocation" class="custom-select" required>
-                    <option value="" disabled selected>Select Location</option>
-                    <option value="Vizag">Vizag</option>
-                    <option value="Amaravathi">Amaravathi</option>
+                    <option value="" disabled selected data-i18n="opt_sel_loc">Select Location</option>
+                    <option value="Vizag">Vizag (Visakhapatnam)</option>
+                    <option value="Amaravathi">Amaravathi (Capital)</option>
                     <option value="Vijayawada">Vijayawada</option>
                     <option value="Guntur">Guntur</option>
                     <option value="Kakinada">Kakinada</option>
@@ -278,54 +274,54 @@
 
             <div class="form-row-grid">
               <div class="form-group">
-                <label class="form-label">Property Details</label>
+                <label class="form-label" data-i18n="lbl_details">Property Details</label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-layer-group"></i>
-                  <input type="text" class="custom-input" placeholder="Any additional details...">
+                  <input type="text" class="custom-input" placeholder="Any additional details..." data-i18n-ph="ph_details">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Contact Number <span class="req">*</span></label>
+                <label class="form-label" data-i18n="lbl_contact">Contact Number *</label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-phone"></i>
-                  <input type="tel" class="custom-input" placeholder="Enter your mobile number" required>
+                  <input type="tel" class="custom-input" placeholder="Enter your mobile number" data-i18n-ph="ph_contact" required>
                 </div>
               </div>
             </div>
 
             <div class="form-row-grid">
               <div class="form-group">
-                <label class="form-label">Budget Range</label>
+                <label class="form-label" data-i18n="lbl_budget">Budget Range</label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-indian-rupee-sign"></i>
                   <select id="homeBudget" class="custom-select">
-                    <option value="" disabled selected>Select Budget</option>
-                    <option value="under-50l">Under ₹50 Lakhs</option>
-                    <option value="50l-1cr">₹50 Lakhs - ₹1 Crore</option>
-                    <option value="above-1cr">Above ₹1 Crore</option>
+                    <option value="" disabled selected data-i18n="opt_sel_budget">Select Budget</option>
+                    <option value="under-50l" data-i18n="budget_under_50l">Under ₹50 Lakhs</option>
+                    <option value="50l-1cr" data-i18n="budget_50l_1cr">₹50 Lakhs - ₹1 Crore</option>
+                    <option value="above-1cr" data-i18n="budget_above_1cr">Above ₹1 Crore</option>
                   </select>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Name <span class="req">*</span></label>
+                <label class="form-label" data-i18n="lbl_name">Name *</label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-user"></i>
-                  <input type="text" class="custom-input" placeholder="Enter your name" required>
+                  <input type="text" class="custom-input" placeholder="Enter your name" data-i18n-ph="ph_name" required>
                 </div>
               </div>
             </div>
 
-            <button type="submit" class="btn-orange" style="margin-top: 6px; width: 100%; justify-content: center;">
-              <i class="fa-solid fa-magnifying-glass"></i> Search Properties
+            <button type="submit" id="homeSubmitBtn" class="btn-orange" style="margin-top: 6px; width: 100%; justify-content: center; padding: 14px;">
+              <i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="btn_search_props">Search Properties</span>
             </button>
           </form>
         </section>
 
-        <!-- 6. Our Property Categories 4-Card Grid -->
-        <section>
-          <h3 class="section-header-title" style="margin-bottom: 12px;">
+        <!-- 6. Our Property Categories - Grand Level 2x2 Grid (Fixed image copy 12.png) -->
+        <section class="reveal-on-scroll">
+          <h3 class="section-header-title" style="margin-bottom: 14px;" data-i18n="cat_title">
             Our Property <span class="highlight">Categories</span>
           </h3>
           <div class="categories-grid">
@@ -333,7 +329,7 @@
               <img src="assets/images/cat-plots.png" alt="Plots">
               <div class="category-card-overlay"></div>
               <div class="category-info">
-                <span class="category-name">Plots</span>
+                <span class="category-name" data-i18n="cat_plots">Plots</span>
                 <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </a>
@@ -341,7 +337,7 @@
               <img src="assets/images/cat-flats.png" alt="Flats">
               <div class="category-card-overlay"></div>
               <div class="category-info">
-                <span class="category-name">Flats</span>
+                <span class="category-name" data-i18n="cat_flats">Flats</span>
                 <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </a>
@@ -349,7 +345,7 @@
               <img src="assets/images/cat-houses.png" alt="Houses">
               <div class="category-card-overlay"></div>
               <div class="category-info">
-                <span class="category-name">Houses</span>
+                <span class="category-name" data-i18n="cat_houses">Houses</span>
                 <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </a>
@@ -357,17 +353,17 @@
               <img src="assets/images/cat-villas.png" alt="Villas">
               <div class="category-card-overlay"></div>
               <div class="category-info">
-                <span class="category-name">Villas</span>
+                <span class="category-name" data-i18n="cat_villas">Villas</span>
                 <span class="category-btn-circle"><i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </a>
           </div>
         </section>
 
-        <!-- 7. Our Happy Customers Reviews Carousel -->
-        <section class="testimonials-card">
+        <!-- 7. Our Happy Customers Reviews Carousel - Grand Circular Frames (Fixed image copy 12.png) -->
+        <section class="testimonials-card reveal-on-scroll">
           <div class="testimonials-header">
-            <h3>Our Happy Customers Reviews</h3>
+            <h3 data-i18n="reviews_header">Our Happy Customers Reviews</h3>
           </div>
           <div class="testimonials-slider">
             <button id="prevTestimonial" class="slider-arrow-btn" aria-label="Previous Review">
@@ -376,77 +372,117 @@
             <div class="testimonials-track-wrap">
               <!-- Slide 1 -->
               <div class="testimonial-slide active">
-                <img src="assets/images/avatar-sneha.png" alt="Sneha Reddy" class="testimonial-avatar">
+                <div class="testimonial-avatar-wrap">
+                  <img src="assets/images/avatar-sneha.png" alt="Sneha Reddy" class="testimonial-avatar">
+                </div>
                 <div class="star-rating-row">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="testimonial-quote">"Amazing platform! Found my dream home."</p>
-                <span class="testimonial-author">– Sneha Reddy</span>
+                <p class="testimonial-quote">"Amazing platform! Found my dream home within 10 days."</p>
+                <span class="testimonial-author">– Sneha Reddy (Tirupati)</span>
               </div>
               <!-- Slide 2 -->
               <div class="testimonial-slide">
-                <img src="assets/images/avatar-rahul.png" alt="Rahul Varma" class="testimonial-avatar">
+                <div class="testimonial-avatar-wrap">
+                  <img src="assets/images/avatar-rahul.png" alt="Rahul Varma" class="testimonial-avatar">
+                </div>
                 <div class="star-rating-row">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="testimonial-quote">"Very helpful and easy to use."</p>
-                <span class="testimonial-author">– Rahul Varma</span>
+                <p class="testimonial-quote">"Very helpful and easy to use. The paperwork guidance was stellar."</p>
+                <span class="testimonial-author">– Rahul Varma (Rajahmundry)</span>
               </div>
               <!-- Slide 3 -->
               <div class="testimonial-slide">
-                <img src="assets/images/avatar-priya.png" alt="Priya Sharma" class="testimonial-avatar">
+                <div class="testimonial-avatar-wrap">
+                  <img src="assets/images/avatar-priya.png" alt="Priya Sharma" class="testimonial-avatar">
+                </div>
                 <div class="star-rating-row">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
-                <p class="testimonial-quote">"Trusted and reliable service!"</p>
-                <span class="testimonial-author">– Priya Sharma</span>
+                <p class="testimonial-quote">"Trusted and reliable service! Truly client-first approach."</p>
+                <span class="testimonial-author">– Priya Sharma (Vizag)</span>
               </div>
             </div>
             <button id="nextTestimonial" class="slider-arrow-btn" aria-label="Next Review">
               <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
-          <div style="text-align: center; margin-top: 10px;">
-            <a href="reviews.html" style="font-size: 12px; font-weight: 700; color: #0754bd; text-decoration: none;">
-              Read all verified reviews ➔
+          <div style="text-align: center; margin-top: 14px;">
+            <a href="reviews.html" style="font-size: 13px; font-weight: 700; color: #0754bd; text-decoration: none;">
+              <span data-i18n="read_all_reviews">Read all verified reviews ➔</span>
             </a>
           </div>
         </section>
 
       </main>
 
-      <!-- Floating Bottom Dock Navigation -->
+      <!-- Bottom Floating Nav Dock -->
       <nav class="bottom-floating-nav">
         <a href="contact.html" class="bottom-nav-pill pill-contact">
-          <i class="fa-solid fa-phone"></i> Contact
+          <i class="fa-solid fa-phone"></i> <span data-i18n="bottom_contact">Contact</span>
         </a>
         <a href="reviews.html" class="bottom-nav-pill pill-contact">
-          <i class="fa-solid fa-star"></i> Reviews
+          <i class="fa-solid fa-star"></i> <span data-i18n="bottom_reviews">Reviews</span>
         </a>
         <a href="properties.html" class="bottom-nav-pill pill-properties-purple">
-          <i class="fa-solid fa-house-chimney"></i> Open Properties
+          <i class="fa-solid fa-house-chimney"></i> <span data-i18n="bottom_open_props">Open Properties</span>
         </a>
       </nav>
 
     </div>
   </div>
 
-  <!-- Shared Modals (Call, Language, Review, Property Details, Success) -->
+  <!-- Shared Modals (Language, Call, Property Details, Success) -->
 
-  <!-- 1. Quick Call Modal -->
+  <!-- 1. Language Modal (Telugu, Hindi, English) -->
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="selectLanguage('en', 'English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+            <div class="call-option-text">
+              <h4>English</h4>
+              <p>Standard International Version</p>
+            </div>
+          </button>
+          <button onclick="selectLanguage('te', 'తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text">
+              <h4>తెలుగు (Telugu)</h4>
+              <p>ఆంధ్రప్రదేశ్ & తెలంగాణ రియల్ ఎస్టేట్</p>
+            </div>
+          </button>
+          <button onclick="selectLanguage('hi', 'हिन्दी (Hindi)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #16a34a;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text">
+              <h4>हिन्दी (Hindi)</h4>
+              <p>भारत भर में रियल एस्टेट सेवाएं</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Call Modal -->
   <div id="callModal" class="modal-backdrop">
     <div class="modal-dialog-box">
       <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <h3><i class="fa-solid fa-phone-volume"></i> SimplyBuySell Support Hotline</h3>
         <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body-scroll">
-        <p style="font-size: 13px; color: #64748b;">Our property specialists are available 24/7 to assist with your real estate needs.</p>
         <div class="call-options-grid">
           <a href="tel:+919876543210" class="call-option-item">
             <div class="call-option-icon phone"><i class="fa-solid fa-phone"></i></div>
             <div class="call-option-text">
-              <h4>Direct Call Hotline</h4>
+              <h4>Direct Call Support</h4>
               <p>+91 98765 43210 (Toll-Free Instant Connect)</p>
             </div>
           </a>
@@ -461,44 +497,9 @@
             <div class="call-option-icon support"><i class="fa-solid fa-envelope"></i></div>
             <div class="call-option-text">
               <h4>Submit an Online Inquiry</h4>
-              <p>Leave details and we will call you within 24 hours</p>
+              <p>Our team responds within 24 hours</p>
             </div>
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Language Switcher Modal -->
-  <div id="languageModal" class="modal-backdrop">
-    <div class="modal-dialog-box" style="max-width: 380px;">
-      <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
-        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body-scroll">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
-            <div class="call-option-text">
-              <h4>English (Default)</h4>
-              <p>Standard International Version</p>
-            </div>
-          </button>
-          <button onclick="selectLanguage('తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
-            <div class="call-option-text">
-              <h4>తెలుగు (Telugu)</h4>
-              <p>ఆంధ్రప్రదేశ్ & తెలంగాణ రియల్ ఎస్టేట్</p>
-            </div>
-          </button>
-          <button onclick="selectLanguage('हिन्दी (Hindi)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-            <div class="call-option-icon support" style="background: #16a34a;"><i class="fa-solid fa-language"></i></div>
-            <div class="call-option-text">
-              <h4>हिन्दी (Hindi)</h4>
-              <p>भारत भर में रियल एस्टेट सेवाएं</p>
-            </div>
-          </button>
         </div>
       </div>
     </div>
@@ -511,13 +512,11 @@
         <h3><i class="fa-solid fa-house-chimney"></i> Property Details</h3>
         <button onclick="closeModal('propDetailsModal')" class="modal-close-btn">&times;</button>
       </div>
-      <div class="modal-body-scroll" id="propDetailsModalBody">
-        <!-- Injected dynamically by main.js -->
-      </div>
+      <div class="modal-body-scroll" id="propDetailsModalBody"></div>
     </div>
   </div>
 
-  <!-- 4. Success Confirmation Modal -->
+  <!-- 4. Success Modal -->
   <div id="successModal" class="modal-backdrop">
     <div class="modal-dialog-box" style="max-width: 400px; text-align: center;">
       <div class="modal-body-scroll" style="align-items: center; padding: 30px 20px;">
@@ -529,14 +528,13 @@
         <div style="background: #f1f5f9; padding: 6px 14px; border-radius: 8px; font-size: 12px; color: #334155; margin-bottom: 18px;">
           Reference ID: <strong id="successModalRef" style="color: #0754bd;"></strong>
         </div>
-        <button onclick="closeModal('successModal')" class="btn-orange" style="width: 100%; justify-content: center;">
-          Done
-        </button>
+        <button onclick="closeModal('successModal')" class="btn-orange" style="width: 100%; justify-content: center;">Done</button>
       </div>
     </div>
   </div>
 
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

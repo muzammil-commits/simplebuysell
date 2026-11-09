@@ -10,38 +10,10 @@
 </head>
 <body>
 
-  <!-- Viewport Switcher & Quick Navigation Bar -->
-  <div class="viewport-control-bar">
-    <div class="viewport-info">
-      <span class="viewport-badge">SimplyBuySell</span>
-      <span>Property Purchase Portal</span>
-    </div>
-    <div class="viewport-btns">
-      <span style="font-size: 11px; opacity: 0.8; margin-right: 4px;">View Mode:</span>
-      <button id="viewMobileBtn" class="view-btn">
-        <i class="fa-solid fa-mobile-screen"></i> Mobile Frame
-      </button>
-      <button id="viewDesktopBtn" class="view-btn active">
-        <i class="fa-solid fa-desktop"></i> Desktop View
-      </button>
-    </div>
-  </div>
-
-  <div class="app-viewport-wrapper mode-desktop">
+  <div class="app-viewport-wrapper">
     <div class="app-container">
 
-      <!-- iOS Status Bar -->
-      <div class="ios-status-bar">
-        <span id="statusClock">9:41</span>
-        <div class="dynamic-island"></div>
-        <div class="status-right">
-          <i class="fa-solid fa-signal"></i>
-          <i class="fa-solid fa-wifi"></i>
-          <i class="fa-solid fa-battery-full"></i>
-        </div>
-      </div>
-
-      <!-- App Header -->
+      <!-- Main App Header -->
       <header class="app-header">
         <a href="index.html" class="brand-logo">
           <img src="assets/images/logo.png" alt="SimplyBuySell Logo">
@@ -56,21 +28,24 @@
       <!-- Top Nav Bar (Buy / Sell Active) -->
       <nav class="top-nav-bar">
         <a href="index.html" class="nav-tab-item">
-          <i class="fa-solid fa-house"></i> Home
+          <i class="fa-solid fa-house"></i>
+          <span data-i18n="nav_home">Home</span>
         </a>
         <a href="motto.html" class="nav-tab-item">
-          <i class="fa-solid fa-bullseye"></i> Our Motto
+          <i class="fa-solid fa-bullseye"></i>
+          <span data-i18n="nav_motto">Our Motto</span>
         </a>
         <a href="buy.html" class="nav-tab-item active">
-          <i class="fa-solid fa-handshake"></i> Buy / Sell
+          <i class="fa-solid fa-handshake"></i>
+          <span data-i18n="nav_buy_sell">Buy / Sell</span>
         </a>
       </nav>
 
       <!-- Page Content -->
       <main class="page-content">
 
-        <!-- Banner Header (matches image copy 8.png) -->
-        <section class="page-title-banner">
+        <!-- Banner Header -->
+        <section class="page-title-banner reveal-on-scroll">
           <img src="assets/images/city-banner.png" alt="Buy Property" class="banner-bg-img">
           <div class="banner-content">
             <h1>Buy <span class="highlight">Property</span></h1>
@@ -78,10 +53,10 @@
           </div>
         </section>
 
-        <form id="buyPropertyForm" style="display: flex; flex-direction: column; gap: 12px;">
+        <form id="buyPropertyForm" style="display: flex; flex-direction: column; gap: 14px;">
 
-          <!-- Step 1: Select Property Type (matches image copy 8.png) -->
-          <section class="step-selection-card">
+          <!-- Step 1: Select Property Type -->
+          <section class="step-selection-card reveal-on-scroll">
             <div class="step-label">
               <span class="step-num-badge">1</span>
               <span>Select Property Type</span>
@@ -100,8 +75,8 @@
             </div>
           </section>
 
-          <!-- Step 2: Choose Action (matches image copy 8.png) -->
-          <section class="step-selection-card">
+          <!-- Step 2: Choose Action -->
+          <section class="step-selection-card reveal-on-scroll">
             <div class="step-label">
               <span class="step-num-badge">2</span>
               <span>Choose Action</span>
@@ -117,7 +92,7 @@
           </section>
 
           <!-- Buyer Details Section -->
-          <section class="step-selection-card">
+          <section class="step-selection-card reveal-on-scroll">
             <div class="form-sub-header">
               <i class="fa-solid fa-file-lines" style="color: #ff6801;"></i>
               <span>Buyer Details</span>
@@ -174,7 +149,7 @@
           </section>
 
           <!-- Property Preferences Section -->
-          <section class="step-selection-card">
+          <section class="step-selection-card reveal-on-scroll">
             <div class="form-sub-header">
               <i class="fa-solid fa-seedling" style="color: #16a34a;"></i>
               <span>Property Preferences</span>
@@ -238,7 +213,7 @@
                 <i class="fa-solid fa-star" style="color: #ff6801;"></i>
                 <span>Additional Preferences (Optional)</span>
               </div>
-              <div class="checkbox-multi-grid" style="margin-top: 4px;">
+              <div class="checkbox-multi-grid" style="margin-top: 6px;">
                 <label class="custom-checkbox-label">
                   <input type="checkbox" name="pref" value="school">
                   <span>Near School</span>
@@ -274,7 +249,7 @@
 
       </main>
 
-      <!-- Bottom Floating Nav Bar -->
+      <!-- Bottom Floating Nav Dock -->
       <nav class="bottom-floating-nav">
         <button onclick="openCallModal()" class="bottom-nav-pill pill-call-green">
           <i class="fa-solid fa-phone"></i> Call
@@ -291,10 +266,35 @@
   </div>
 
   <!-- Shared Modals -->
+  <div id="languageModal" class="modal-backdrop">
+    <div class="modal-dialog-box" style="max-width: 380px;">
+      <div class="modal-header-bar">
+        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
+        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button onclick="selectLanguage('en', 'English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
+            <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
+          </button>
+          <button onclick="selectLanguage('te', 'తెలుగు (Telugu)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #ea580c;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text"><h4>తెలుగు (Telugu)</h4><p>ఆంధ్రప్రదేశ్ & తెలంగాణ రియల్ ఎస్టేట్</p></div>
+          </button>
+          <button onclick="selectLanguage('hi', 'हिन्दी (Hindi)')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
+            <div class="call-option-icon support" style="background: #16a34a;"><i class="fa-solid fa-language"></i></div>
+            <div class="call-option-text"><h4>हिन्दी (Hindi)</h4><p>भारत भर में रियल एस्टेट सेवाएं</p></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="callModal" class="modal-backdrop">
     <div class="modal-dialog-box">
       <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-phone-volume"></i> Contact SimplyBuySell Support</h3>
+        <h3><i class="fa-solid fa-phone-volume"></i> SimplyBuySell Support</h3>
         <button onclick="closeCallModal()" class="modal-close-btn">&times;</button>
       </div>
       <div class="modal-body-scroll">
@@ -307,21 +307,6 @@
             </div>
           </a>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="languageModal" class="modal-backdrop">
-    <div class="modal-dialog-box" style="max-width: 380px;">
-      <div class="modal-header-bar">
-        <h3><i class="fa-solid fa-globe"></i> Select Language</h3>
-        <button onclick="closeLanguageModal()" class="modal-close-btn">&times;</button>
-      </div>
-      <div class="modal-body-scroll">
-        <button onclick="selectLanguage('English')" class="call-option-item" style="border: none; cursor: pointer; text-align: left; width: 100%;">
-          <div class="call-option-icon support" style="background: #2563eb;"><i class="fa-solid fa-check"></i></div>
-          <div class="call-option-text"><h4>English</h4><p>Standard International Version</p></div>
-        </button>
       </div>
     </div>
   </div>
@@ -343,6 +328,7 @@
   </div>
 
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
     function selectPropType(card, type) {

@@ -1,138 +1,54 @@
 // SimplyBuySell Main Application Logic
 
 document.addEventListener("DOMContentLoaded", () => {
-  initTopControlBar();
-  initViewportSwitcher();
-  initDynamicIslandClock();
+  initHeroSlider();
   initTestimonialSlider();
   initInteractiveStars();
   initCharCounters();
   initFormHandlers();
   initFavorites();
+  initScrollAnimations();
 });
 
-// 1. Top Control Bar Enhancements (Quick Page Navigator + Open in New Tab Toggle)
-function initTopControlBar() {
-  const controlBar = document.querySelector(".viewport-control-bar");
-  if (!controlBar) return;
+// 1. Hero 4-Image Changing Carousel (Grand Level)
+let heroSlideIndex = 0;
+let heroTimer = null;
 
-  if (!document.getElementById("pagesQuickNav")) {
-    const pagesNav = document.createElement("div");
-    pagesNav.id = "pagesQuickNav";
-    pagesNav.style.display = "flex";
-    pagesNav.style.alignItems = "center";
-    pagesNav.style.gap = "8px";
-    pagesNav.style.flexWrap = "wrap";
+function initHeroSlider() {
+  const slides = document.querySelectorAll(".hero-slide-img");
+  const dots = document.querySelectorAll(".hero-card .carousel-dots .dot");
+  if (!slides.length) return;
 
-    const isNewTab = localStorage.getItem("sbs_new_tab") === "true";
-
-    pagesNav.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 6px;">
-        <span style="font-size: 11px; opacity: 0.85;">Jump to Page:</span>
-        <select id="quickPageSelect" onchange="navigateQuickPage(this.value)" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 3px 8px; border-radius: 6px; font-size: 11.5px; outline: none; cursor: pointer;">
-          <option value="" style="color: black;" disabled selected>Select page...</option>
-          <option value="index.html" style="color: black;">🏠 Home</option>
-          <option value="properties.html" style="color: black;">🏡 Open Properties</option>
-          <option value="buy.html" style="color: black;">🛒 Buy Property</option>
-          <option value="sell.html" style="color: black;">🏷️ Sell Property</option>
-          <option value="contact.html" style="color: black;">📞 Contact Us</option>
-          <option value="write-review.html" style="color: black;">⭐ Write a Review</option>
-          <option value="reviews.html" style="color: black;">💬 Customer Reviews</option>
-          <option value="motto.html" style="color: black;">🎯 Our Motto</option>
-          <option value="about.html" style="color: black;">ℹ️ About Us</option>
-        </select>
-      </div>
-
-      <label style="display: inline-flex; align-items: center; gap: 4px; font-size: 11px; cursor: pointer; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.2);">
-        <input type="checkbox" id="openNewTabCheck" ${isNewTab ? "checked" : ""} onchange="toggleOpenNewTab(this.checked)">
-        <span>Open in new tab</span>
-      </label>
-    `;
-
-    controlBar.insertBefore(pagesNav, controlBar.querySelector(".viewport-btns"));
+  function showHeroSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+    heroSlideIndex = index;
   }
 
-  applyNewTabState();
-}
-
-function navigateQuickPage(url) {
-  if (!url) return;
-  const isNewTab = localStorage.getItem("sbs_new_tab") === "true";
-  if (isNewTab) {
-    window.open(url, "_blank");
-  } else {
-    window.location.href = url;
-  }
-}
-
-function toggleOpenNewTab(checked) {
-  localStorage.setItem("sbs_new_tab", checked ? "true" : "false");
-  applyNewTabState();
-  showToast(checked ? "Links will now open in new tab" : "Links will open in same window", "info");
-}
-
-function applyNewTabState() {
-  const isNewTab = localStorage.getItem("sbs_new_tab") === "true";
-  const links = document.querySelectorAll("a[href$='.html']");
-  links.forEach((a) => {
-    if (isNewTab) {
-      a.setAttribute("target", "_blank");
-    } else {
-      a.removeAttribute("target");
-    }
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      clearInterval(heroTimer);
+      showHeroSlide(idx);
+      startHeroAutoPlay();
+    });
   });
-}
 
-// 2. Viewport Switcher (Mobile App Frame vs Responsive Desktop)
-function initViewportSwitcher() {
-  const wrapper = document.querySelector(".app-viewport-wrapper");
-  const mobileBtn = document.getElementById("viewMobileBtn");
-  const desktopBtn = document.getElementById("viewDesktopBtn");
-
-  if (!wrapper || !mobileBtn || !desktopBtn) return;
-
-  const savedMode = localStorage.getItem("sbs_viewport_mode") || "desktop";
-  setViewportMode(savedMode);
-
-  mobileBtn.addEventListener("click", () => setViewportMode("mobile"));
-  desktopBtn.addEventListener("click", () => setViewportMode("desktop"));
-
-  function setViewportMode(mode) {
-    if (mode === "mobile") {
-      wrapper.classList.remove("mode-desktop");
-      wrapper.classList.add("mode-mobile");
-      mobileBtn.classList.add("active");
-      desktopBtn.classList.remove("active");
-      localStorage.setItem("sbs_viewport_mode", "mobile");
-    } else {
-      wrapper.classList.remove("mode-mobile");
-      wrapper.classList.add("mode-desktop");
-      desktopBtn.classList.add("active");
-      mobileBtn.classList.remove("active");
-      localStorage.setItem("sbs_viewport_mode", "desktop");
-    }
+  function startHeroAutoPlay() {
+    heroTimer = setInterval(() => {
+      heroSlideIndex = (heroSlideIndex + 1) % slides.length;
+      showHeroSlide(heroSlideIndex);
+    }, 4000);
   }
+
+  showHeroSlide(0);
+  startHeroAutoPlay();
 }
 
-// 3. Dynamic Island Status Bar Clock
-function initDynamicIslandClock() {
-  const clockEl = document.getElementById("statusClock");
-  if (!clockEl) return;
-
-  function updateClock() {
-    const now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    clockEl.textContent = `${hours}:${minutes}`;
-  }
-  updateClock();
-  setInterval(updateClock, 30000);
-}
-
-// 4. Testimonial Slider
+// 2. Testimonial Slider
 let currentSlideIndex = 0;
 function initTestimonialSlider() {
   const slides = document.querySelectorAll(".testimonial-slide");
@@ -164,10 +80,28 @@ function initTestimonialSlider() {
   setInterval(() => {
     currentSlideIndex = (currentSlideIndex + 1) % slides.length;
     showSlide(currentSlideIndex);
-  }, 5000);
+  }, 4500);
 }
 
-// 5. Interactive Star Rating Selector
+// 3. Scroll Reveal Animations
+function initScrollAnimations() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+    observer.observe(el);
+  });
+}
+
+// 4. Interactive Star Rating Selector
 function initInteractiveStars() {
   const starContainers = document.querySelectorAll(".interactive-stars-picker");
   starContainers.forEach((container) => {
@@ -198,7 +132,7 @@ function initInteractiveStars() {
   });
 }
 
-// 6. Character Counters for Textareas
+// 5. Character Counters for Textareas
 function initCharCounters() {
   const textareas = document.querySelectorAll("textarea[maxlength]");
   textareas.forEach((ta) => {
@@ -218,7 +152,7 @@ function initCharCounters() {
   });
 }
 
-// 7. Favorites Handler
+// 6. Favorites Handler
 function initFavorites() {
   document.addEventListener("click", (e) => {
     const favBtn = e.target.closest(".prop-fav-btn");
@@ -231,7 +165,7 @@ function initFavorites() {
   });
 }
 
-// 8. Modals
+// 7. Modals Framework
 function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -257,7 +191,7 @@ function closeCallModal() {
   closeModal("callModal");
 }
 
-// Language Modal
+// Language Modal & Instant Translation
 function openLanguageModal() {
   openModal("languageModal");
 }
@@ -266,11 +200,14 @@ function closeLanguageModal() {
   closeModal("languageModal");
 }
 
-function selectLanguage(lang) {
-  const langText = document.getElementById("selectedLangText");
-  if (langText) langText.textContent = lang;
+function selectLanguage(langCode, langDisplayName) {
+  if (typeof setAppLanguage === "function") {
+    setAppLanguage(langCode);
+  }
+  const labelEl = document.getElementById("selectedLangText");
+  if (labelEl) labelEl.textContent = langDisplayName;
   closeLanguageModal();
-  showToast(`Language switched to ${lang}`, "success");
+  showToast(`Language switched to ${langDisplayName}`, "success");
 }
 
 // Write Review Modal
@@ -280,6 +217,46 @@ function openWriteReviewModal() {
 
 function closeWriteReviewModal() {
   closeModal("writeReviewModal");
+}
+
+// Instant Quick Response Toggle between Buy & Sell in Home Form
+function toggleHomeFormAction(mode) {
+  const buyBtn = document.getElementById("homeToggleBuyBtn");
+  const sellBtn = document.getElementById("homeToggleSellBtn");
+  const submitBtn = document.getElementById("homeSubmitBtn");
+  const propTypeSelect = document.getElementById("homePropType");
+
+  if (mode === "buy") {
+    buyBtn?.classList.add("active");
+    sellBtn?.classList.remove("active");
+    if (submitBtn) submitBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Search Properties';
+    if (propTypeSelect) {
+      propTypeSelect.innerHTML = `
+        <option value="" disabled selected>Select Property Type</option>
+        <option value="Plots">Residential Plots</option>
+        <option value="Flats">Apartments / Flats</option>
+        <option value="Houses">Independent Houses</option>
+        <option value="Villas">Luxury Villas</option>
+        <option value="Commercial">Commercial Spaces</option>
+        <option value="Farm Lands">Farm Lands</option>
+      `;
+    }
+  } else {
+    sellBtn?.classList.add("active");
+    buyBtn?.classList.remove("active");
+    if (submitBtn) submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Listing Inquiry';
+    if (propTypeSelect) {
+      propTypeSelect.innerHTML = `
+        <option value="" disabled selected>Select Property to Sell</option>
+        <option value="Amaravathi LPS">Amaravathi LPS Plots</option>
+        <option value="2nd Pooling">2nd Pooling Lands</option>
+        <option value="Plots">Residential Plots</option>
+        <option value="Flats">Apartments / Flats</option>
+        <option value="Houses">Independent Houses</option>
+        <option value="Commercial">Commercial Buildings</option>
+      `;
+    }
+  }
 }
 
 // Property Details Modal
@@ -345,9 +322,9 @@ function openPropertyDetails(propId) {
         <i class="fa-solid fa-calendar-check" style="color: #ff6801;"></i> Schedule a Free Site Visit
       </h4>
       <form onsubmit="handleSiteVisitSubmit(event, '${prop.title}')" style="display: flex; flex-direction: column; gap: 8px;">
-        <input type="text" placeholder="Your Name" required class="custom-input" style="padding-left: 12px;">
-        <input type="tel" placeholder="Mobile Number" required class="custom-input" style="padding-left: 12px;">
-        <input type="date" required class="custom-input" style="padding-left: 12px;">
+        <input type="text" placeholder="Your Name" required class="custom-input" style="padding-left: 14px;">
+        <input type="tel" placeholder="Mobile Number" required class="custom-input" style="padding-left: 14px;">
+        <input type="date" required class="custom-input" style="padding-left: 14px;">
         <button type="submit" class="btn-orange" style="width: 100%; padding: 10px; justify-content: center;">
           <i class="fa-solid fa-paper-plane"></i> Book Appointment Now
         </button>
@@ -369,7 +346,7 @@ function handleSiteVisitSubmit(e, propTitle) {
   );
 }
 
-// 9. Success Feedback Modal
+// 8. Success Feedback Modal
 function showSuccessModal(title, msg, refId) {
   const modal = document.getElementById("successModal");
   if (!modal) return;
@@ -381,7 +358,7 @@ function showSuccessModal(title, msg, refId) {
   openModal("successModal");
 }
 
-// 10. Toast Notification
+// 9. Toast Notification
 function showToast(message, type = "info") {
   let toast = document.getElementById("appToast");
   if (!toast) {
@@ -400,7 +377,7 @@ function showToast(message, type = "info") {
   }, 3500);
 }
 
-// 11. Form Handlers
+// 10. Form Handlers
 function initFormHandlers() {
   // Contact Us Form
   const contactForm = document.getElementById("contactUsForm");
@@ -476,19 +453,13 @@ function initFormHandlers() {
 
       showToast("Searching matching properties...", "info");
       setTimeout(() => {
-        const isNewTab = localStorage.getItem("sbs_new_tab") === "true";
-        const targetUrl = `properties.html?type=${encodeURIComponent(propType)}&location=${encodeURIComponent(location)}&budget=${encodeURIComponent(budget)}`;
-        if (isNewTab) {
-          window.open(targetUrl, "_blank");
-        } else {
-          window.location.href = targetUrl;
-        }
-      }, 500);
+        window.location.href = `properties.html?type=${encodeURIComponent(propType)}&location=${encodeURIComponent(location)}&budget=${encodeURIComponent(budget)}`;
+      }, 350);
     });
   }
 }
 
-// 12. Property Filter Functionality (on properties.html)
+// 11. Property Filter Functionality (on properties.html)
 function filterProperties() {
   if (typeof SB_DATA === "undefined" || !SB_DATA.properties) return;
 
@@ -576,8 +547,6 @@ function renderPropertyCards(propsList) {
   `
     )
     .join("");
-
-  applyNewTabState();
 }
 
 function resetFilters() {
